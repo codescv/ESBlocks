@@ -18,6 +18,9 @@
 		693542CB1592F87A00CDE389 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693542B21592F87A00CDE389 /* Foundation.framework */; };
 		693542D31592F87A00CDE389 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 693542D11592F87A00CDE389 /* InfoPlist.strings */; };
 		693542D61592F87A00CDE389 /* ESBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 693542D51592F87A00CDE389 /* ESBlocksTests.m */; };
+		693542E11592F8C100CDE389 /* NSObject+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 693542E01592F8C100CDE389 /* NSObject+ESBlocks.m */; };
+		693542E515930F8C00CDE389 /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 693542E415930F8C00CDE389 /* TestObj.m */; };
+		69DC282A159321D600EB7025 /* NSObject+ESPropertyGeneration.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DC2829159321D600EB7025 /* NSObject+ESPropertyGeneration.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,18 +38,25 @@
 		693542B01592F87A00CDE389 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		693542B21592F87A00CDE389 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		693542B41592F87A00CDE389 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		693542B81592F87A00CDE389 /* ESBlocks-Info.plist */ = {isa = PBXFileReference; path = "ESBlocks-Info.plist"; sourceTree = "<group>"; };
+		693542B81592F87A00CDE389 /* ESBlocks-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ESBlocks-Info.plist"; sourceTree = "<group>"; };
 		693542BA1592F87A00CDE389 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		693542BC1592F87A00CDE389 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		693542BE1592F87A00CDE389 /* ESBlocks-Prefix.pch */ = {isa = PBXFileReference; path = "ESBlocks-Prefix.pch"; sourceTree = "<group>"; };
-		693542BF1592F87A00CDE389 /* AppDelegate.h */ = {isa = PBXFileReference; path = AppDelegate.h; sourceTree = "<group>"; };
+		693542BE1592F87A00CDE389 /* ESBlocks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ESBlocks-Prefix.pch"; sourceTree = "<group>"; };
+		693542BF1592F87A00CDE389 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		693542C01592F87A00CDE389 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		693542C71592F87A00CDE389 /* ESBlocksTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESBlocksTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		693542C81592F87A00CDE389 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
-		693542D01592F87A00CDE389 /* ESBlocksTests-Info.plist */ = {isa = PBXFileReference; path = "ESBlocksTests-Info.plist"; sourceTree = "<group>"; };
+		693542D01592F87A00CDE389 /* ESBlocksTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ESBlocksTests-Info.plist"; sourceTree = "<group>"; };
 		693542D21592F87A00CDE389 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		693542D41592F87A00CDE389 /* ESBlocksTests.h */ = {isa = PBXFileReference; path = ESBlocksTests.h; sourceTree = "<group>"; };
+		693542D41592F87A00CDE389 /* ESBlocksTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESBlocksTests.h; sourceTree = "<group>"; };
 		693542D51592F87A00CDE389 /* ESBlocksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESBlocksTests.m; sourceTree = "<group>"; };
+		693542DF1592F8C100CDE389 /* NSObject+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ESBlocks.h"; sourceTree = "<group>"; };
+		693542E01592F8C100CDE389 /* NSObject+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ESBlocks.m"; sourceTree = "<group>"; };
+		693542E21592F94700CDE389 /* ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESBlocks.h; sourceTree = "<group>"; };
+		693542E315930F8C00CDE389 /* TestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
+		693542E415930F8C00CDE389 /* TestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObj.m; sourceTree = "<group>"; };
+		69DC2828159321D600EB7025 /* NSObject+ESPropertyGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ESPropertyGeneration.h"; sourceTree = "<group>"; };
+		69DC2829159321D600EB7025 /* NSObject+ESPropertyGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ESPropertyGeneration.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +118,13 @@
 			children = (
 				693542BF1592F87A00CDE389 /* AppDelegate.h */,
 				693542C01592F87A00CDE389 /* AppDelegate.m */,
+				693542E21592F94700CDE389 /* ESBlocks.h */,
+				693542DF1592F8C100CDE389 /* NSObject+ESBlocks.h */,
+				693542E01592F8C100CDE389 /* NSObject+ESBlocks.m */,
+				69DC2828159321D600EB7025 /* NSObject+ESPropertyGeneration.h */,
+				69DC2829159321D600EB7025 /* NSObject+ESPropertyGeneration.m */,
+				693542E315930F8C00CDE389 /* TestObj.h */,
+				693542E415930F8C00CDE389 /* TestObj.m */,
 				693542B71592F87A00CDE389 /* Supporting Files */,
 			);
 			path = ESBlocks;
@@ -189,6 +206,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Chi Zhang";
 			};
 			buildConfigurationList = 693542A61592F87900CDE389 /* Build configuration list for PBXProject "ESBlocks" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -250,6 +268,9 @@
 			files = (
 				693542BD1592F87A00CDE389 /* main.m in Sources */,
 				693542C11592F87A00CDE389 /* AppDelegate.m in Sources */,
+				693542E11592F8C100CDE389 /* NSObject+ESBlocks.m in Sources */,
+				693542E515930F8C00CDE389 /* TestObj.m in Sources */,
+				69DC282A159321D600EB7025 /* NSObject+ESPropertyGeneration.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -411,6 +432,7 @@
 				693542DB1592F87A00CDE389 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		693542DC1592F87A00CDE389 /* Build configuration list for PBXNativeTarget "ESBlocksTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +441,7 @@
 				693542DE1592F87A00CDE389 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
