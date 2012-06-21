@@ -24,7 +24,7 @@ static NSString *keyFromGetter(Class class, NSString *getter)
     return [NSString stringWithFormat:@"%@_%@", NSStringFromClass(class), getter];
 }
 
-static NSString *keyFromSetter(Class class, NSString *setter)
+static NSString *setterToGetter(NSString *setter)
 {
     NSUInteger length = [setter length];
     // remove leading 'set(X)' and trailing ':'
@@ -33,38 +33,56 @@ static NSString *keyFromSetter(Class class, NSString *setter)
     NSString *i = [setter substringWithRange:NSMakeRange(3, 1)];
     NSString *iLower = [i lowercaseString];
     NSString *getter = [iLower stringByAppendingString:remainder];
+    return getter;
+}
+
+static NSString *keyFromSetter(Class class, NSString *setter)
+{
+    NSString *getter = setterToGetter(setter);
     return keyFromGetter(class, getter);
 }
 
-static void setKey(NSString *propName)
+static void setKey(Class class, NSString *propName)
 {
-    NSLog(@"set key: %@", propName);
+    NSString *keyStr = keyFromGetter(class, propName);
+    NSLog(@"set key: %@", keyStr);
     if (keys == nil) {
         keys = [[NSMutableDictionary alloc] init];
     }
-    [keys setObject:propName forKey:propName];
+    [keys setObject:keyStr forKey:keyStr];
 }
 
-static void *getKey(NSString *propName)
+static void *getKey(Class class, NSString *propName)
 {
-    NSLog(@"get key: %@", propName);
     if (keys == nil) {
         return nil;
     }
-    return (__bridge void *)[keys objectForKey:propName];
+    while (class) {
+        NSLog(@"finding in %@", class);
+        NSString *keyStr = keyFromGetter(class, propName);
+        void *key = (__bridge void *)[keys objectForKey:keyStr];
+        if (key) {
+            return key;
+        }
+        class = class_getSuperclass(class);
+    }
+    return nil;
 }
 
 static id dynamicGetter(id self, SEL _cmd)
 {
-    NSString *getter = NSStringFromSelector(_cmd);
-    void *key = getKey(keyFromGetter([self class], getter));
-    return [self ivarForKey:key];
+    NSString *sel = NSStringFromSelector(_cmd);
+    void *key = getKey([self class], sel);
+    id result = [self ivarForKey:key];
+    NSLog(@"key %@ result: %@", key, result);
+    return result;
 }
 
 static void dynamicSetter(id self, SEL _cmd, id obj)
 {
-    NSString *setter = NSStringFromSelector(_cmd);
-    void *key = getKey(keyFromSetter([self class], setter));
+    NSString *sel = NSStringFromSelector(_cmd);
+    NSString *getter = setterToGetter(sel);
+    void *key = getKey([self class], getter);
     [self setIVar:obj forKey:key];
 }
 
@@ -74,16 +92,18 @@ static void dynamicSetter(id self, SEL _cmd, id obj)
     NSString *setter = [NSString stringWithFormat:@"set%@:", [propName capitalizedString]];
     class_addMethod([self class], NSSelectorFromString(getter), (IMP)dynamicGetter, "@@:");
     class_addMethod([self class], NSSelectorFromString(setter), (IMP)dynamicSetter, "v@:@");
-    setKey(keyFromGetter([self class], getter));
+    setKey([self class], propName);
 }
 
 - (id)ivarForKey:(void *)key
 {
+    NSLog(@"ivar for %@", key);
     return objc_getAssociatedObject(self, key);
 }
 
 - (void)setIVar:(id)var forKey:(void *)key
 {
+    NSLog(@"set ivar for %@", key);
     objc_setAssociatedObject(self, key, var, OBJC_ASSOCIATION_RETAIN);
 }
 
