@@ -24,15 +24,6 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
 
-    [TestObj defineProperty:@"x"];
-    [NSObject defineProperty:@"y"];
-    
-    TestObj *a = [[TestObj alloc] init];
-    a.name = @"a";
-    a.x = @"haha";
-    a.y = @"ll";
-    NSLog(@"a.x: %@ a.y: %@", a.x, a.y);
-    
     return YES;
 }
 

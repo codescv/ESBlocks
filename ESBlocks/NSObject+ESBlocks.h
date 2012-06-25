@@ -7,10 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "ESBlocks.h"
 
 @interface NSObject (ESBlocks)
 
-@property (nonatomic, assign) NSString *x;
-@property (nonatomic, assign) NSString *y;
+- (void)performBlock:(VoidBlock)block afterDelay:(NSTimeInterval)delay;
 
 @end

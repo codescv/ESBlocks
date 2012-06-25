@@ -12,7 +12,7 @@
 
 @interface NSObject (ESPropertyGenerationPrivate)
 - (id)ivarForKey:(void *)key;
-- (void)setIVar:(id)var forKey:(void *)key;
+- (void)setIVar:(id)var forKey:(void *)key type:(ESPropertyType)type;
 @end
 
 @implementation NSObject (ESPropertyGeneration)
@@ -78,20 +78,58 @@ static id dynamicGetter(id self, SEL _cmd)
     return result;
 }
 
-static void dynamicSetter(id self, SEL _cmd, id obj)
+static void assignSetter(id self, SEL _cmd, id obj)
 {
     NSString *sel = NSStringFromSelector(_cmd);
     NSString *getter = setterToGetter(sel);
     void *key = getKey([self class], getter);
-    [self setIVar:obj forKey:key];
+    [self setIVar:obj forKey:key type:ES_PROP_ASSIGN];
 }
 
-+ (void)defineProperty:(NSString *)propName
+static void retainSetter(id self, SEL _cmd, id obj)
+{
+    NSString *sel = NSStringFromSelector(_cmd);
+    NSString *getter = setterToGetter(sel);
+    void *key = getKey([self class], getter);
+    [self setIVar:obj forKey:key type:ES_PROP_RETAIN];
+}
+
+static void copySetter(id self, SEL _cmd, id obj)
+{
+    NSString *sel = NSStringFromSelector(_cmd);
+    NSString *getter = setterToGetter(sel);
+    void *key = getKey([self class], getter);
+    [self setIVar:obj forKey:key type:ES_PROP_COPY];
+}
+
++ (void)defineProperty:(NSString *)propName type:(ESPropertyType)type
 {
     NSString *getter = propName;
     NSString *setter = [NSString stringWithFormat:@"set%@:", [propName capitalizedString]];
-    class_addMethod([self class], NSSelectorFromString(getter), (IMP)dynamicGetter, "@@:");
-    class_addMethod([self class], NSSelectorFromString(setter), (IMP)dynamicSetter, "v@:@");
+    SEL getterSel = NSSelectorFromString(getter);
+    SEL setterSel = NSSelectorFromString(setter);
+    if (!class_getInstanceMethod([self class], getterSel)) {
+        class_addMethod([self class], getterSel, (IMP)dynamicGetter, "@@:");
+    } else {
+        NSLog(@"method already defined");
+    }
+    if (!class_getInstanceMethod([self class], setterSel)) {
+        switch (type) {
+            case ES_PROP_COPY:
+                class_addMethod([self class], NSSelectorFromString(setter), (IMP)copySetter, "v@:@");
+                break;
+            case ES_PROP_ASSIGN:
+                class_addMethod([self class], NSSelectorFromString(setter), (IMP)assignSetter, "v@:@");
+                break;
+            case ES_PROP_RETAIN:
+                class_addMethod([self class], NSSelectorFromString(setter), (IMP)retainSetter, "v@:@");
+                break;
+            default:
+                break;
+        }
+    } else {
+        NSLog(@"method already defined");
+    }
     setKey([self class], propName);
 }
 
@@ -101,10 +139,25 @@ static void dynamicSetter(id self, SEL _cmd, id obj)
     return objc_getAssociatedObject(self, key);
 }
 
-- (void)setIVar:(id)var forKey:(void *)key
+- (void)setIVar:(id)var forKey:(void *)key type:(ESPropertyType)type
 {
     NSLog(@"set ivar for %@", key);
-    objc_setAssociatedObject(self, key, var, OBJC_ASSOCIATION_RETAIN);
+    objc_AssociationPolicy policy = [self typeToPolicy:type];
+    objc_setAssociatedObject(self, key, var, policy);
+}
+
+- (objc_AssociationPolicy)typeToPolicy:(ESPropertyType)type
+{
+    switch (type) {
+        case ES_PROP_COPY:
+            return OBJC_ASSOCIATION_COPY;
+        case ES_PROP_ASSIGN:
+            return OBJC_ASSOCIATION_ASSIGN;
+        case ES_PROP_RETAIN:
+            return OBJC_ASSOCIATION_RETAIN;
+        default:
+            return OBJC_ASSOCIATION_COPY;
+    }
 }
 
 @end

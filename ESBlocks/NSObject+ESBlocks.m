@@ -7,12 +7,20 @@
 //
 
 #import "NSObject+ESBlocks.h"
-#import "ESBlocks.h"
+#import "NSObject+ESPropertyGeneration.h"
 
 @implementation NSObject (ESBlocks)
 
-@dynamic x;
-@dynamic y;
+- (void)performBlock:(VoidBlock)block afterDelay:(NSTimeInterval)delay
+{
+    [self performSelector:@selector(__es_doBlock:) withObject:block afterDelay:delay];
+}
 
+- (void)__es_doBlock:(VoidBlock)block
+{
+    if (block) {
+        block();
+    }
+}
 
 @end
