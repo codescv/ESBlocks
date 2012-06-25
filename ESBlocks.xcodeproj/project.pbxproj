@@ -54,20 +54,20 @@
 		693542D21592F87A00CDE389 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		693542D41592F87A00CDE389 /* ESBlocksTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESBlocksTests.h; sourceTree = "<group>"; };
 		693542D51592F87A00CDE389 /* ESBlocksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESBlocksTests.m; sourceTree = "<group>"; };
-		693542DF1592F8C100CDE389 /* NSObject+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ESBlocks.h"; sourceTree = "<group>"; };
-		693542E01592F8C100CDE389 /* NSObject+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ESBlocks.m"; sourceTree = "<group>"; };
-		693542E21592F94700CDE389 /* ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESBlocks.h; sourceTree = "<group>"; };
+		693542DF1592F8C100CDE389 /* NSObject+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+ESBlocks.h"; path = "Lib/NSObject+ESBlocks.h"; sourceTree = "<group>"; };
+		693542E01592F8C100CDE389 /* NSObject+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+ESBlocks.m"; path = "Lib/NSObject+ESBlocks.m"; sourceTree = "<group>"; };
+		693542E21592F94700CDE389 /* ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESBlocks.h; path = Lib/ESBlocks.h; sourceTree = "<group>"; };
 		693542E315930F8C00CDE389 /* TestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
 		693542E415930F8C00CDE389 /* TestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObj.m; sourceTree = "<group>"; };
 		698937611597FF640095CF9A /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		698937621597FF640095CF9A /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		698937631597FF640095CF9A /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
-		69893768159800570095CF9A /* UIAlertView+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+ESBlocks.h"; sourceTree = "<group>"; };
-		69893769159800570095CF9A /* UIAlertView+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+ESBlocks.m"; sourceTree = "<group>"; };
-		698937A61598383A0095CF9A /* UIActionSheet+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+ESBlocks.h"; sourceTree = "<group>"; };
-		698937A71598383A0095CF9A /* UIActionSheet+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+ESBlocks.m"; sourceTree = "<group>"; };
-		69DC2828159321D600EB7025 /* NSObject+ESPropertyGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ESPropertyGeneration.h"; sourceTree = "<group>"; };
-		69DC2829159321D600EB7025 /* NSObject+ESPropertyGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ESPropertyGeneration.m"; sourceTree = "<group>"; };
+		69893768159800570095CF9A /* UIAlertView+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+ESBlocks.h"; path = "Lib/UIAlertView+ESBlocks.h"; sourceTree = "<group>"; };
+		69893769159800570095CF9A /* UIAlertView+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+ESBlocks.m"; path = "Lib/UIAlertView+ESBlocks.m"; sourceTree = "<group>"; };
+		698937A61598383A0095CF9A /* UIActionSheet+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIActionSheet+ESBlocks.h"; path = "Lib/UIActionSheet+ESBlocks.h"; sourceTree = "<group>"; };
+		698937A71598383A0095CF9A /* UIActionSheet+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIActionSheet+ESBlocks.m"; path = "Lib/UIActionSheet+ESBlocks.m"; sourceTree = "<group>"; };
+		69DC2828159321D600EB7025 /* NSObject+ESPropertyGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+ESPropertyGeneration.h"; path = "Lib/NSObject+ESPropertyGeneration.h"; sourceTree = "<group>"; };
+		69DC2829159321D600EB7025 /* NSObject+ESPropertyGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+ESPropertyGeneration.m"; path = "Lib/NSObject+ESPropertyGeneration.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +127,7 @@
 		693542B61592F87A00CDE389 /* ESBlocks */ = {
 			isa = PBXGroup;
 			children = (
+				698937A91598426C0095CF9A /* ESAdditions */,
 				698937671597FF800095CF9A /* ESBlocks */,
 				693542BF1592F87A00CDE389 /* AppDelegate.h */,
 				693542C01592F87A00CDE389 /* AppDelegate.m */,
@@ -180,10 +181,17 @@
 				69893769159800570095CF9A /* UIAlertView+ESBlocks.m */,
 				698937A61598383A0095CF9A /* UIActionSheet+ESBlocks.h */,
 				698937A71598383A0095CF9A /* UIActionSheet+ESBlocks.m */,
+			);
+			name = ESBlocks;
+			sourceTree = "<group>";
+		};
+		698937A91598426C0095CF9A /* ESAdditions */ = {
+			isa = PBXGroup;
+			children = (
 				69DC2828159321D600EB7025 /* NSObject+ESPropertyGeneration.h */,
 				69DC2829159321D600EB7025 /* NSObject+ESPropertyGeneration.m */,
 			);
-			name = ESBlocks;
+			name = ESAdditions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
