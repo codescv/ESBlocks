@@ -8,10 +8,7 @@
 
 #import "AppDelegate.h"
 
-#import "TestObj.h"
-
-#import "NSObject+ESPropertyGeneration.h"
-#import "NSObject+ESBlocks.h"
+#import "DemoViewController.h"
 
 @implementation AppDelegate
 
@@ -23,6 +20,10 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    DemoViewController *demovc = [[DemoViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:demovc];
+    self.window.rootViewController = nav;
 
     return YES;
 }

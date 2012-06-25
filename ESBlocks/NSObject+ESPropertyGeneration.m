@@ -105,7 +105,10 @@ static void copySetter(id self, SEL _cmd, id obj)
 + (void)defineProperty:(NSString *)propName type:(ESPropertyType)type
 {
     NSString *getter = propName;
-    NSString *setter = [NSString stringWithFormat:@"set%@:", [propName capitalizedString]];
+    NSString *initial = [getter substringToIndex:1];
+    NSString *remain = [getter substringFromIndex:1];
+    NSString *setter = [NSString stringWithFormat:@"set%@%@:", [initial uppercaseString], remain];
+    
     SEL getterSel = NSSelectorFromString(getter);
     SEL setterSel = NSSelectorFromString(setter);
     if (!class_getInstanceMethod([self class], getterSel)) {
@@ -116,13 +119,13 @@ static void copySetter(id self, SEL _cmd, id obj)
     if (!class_getInstanceMethod([self class], setterSel)) {
         switch (type) {
             case ES_PROP_COPY:
-                class_addMethod([self class], NSSelectorFromString(setter), (IMP)copySetter, "v@:@");
+                class_addMethod([self class], setterSel, (IMP)copySetter, "v@:@");
                 break;
             case ES_PROP_ASSIGN:
-                class_addMethod([self class], NSSelectorFromString(setter), (IMP)assignSetter, "v@:@");
+                class_addMethod([self class], setterSel, (IMP)assignSetter, "v@:@");
                 break;
             case ES_PROP_RETAIN:
-                class_addMethod([self class], NSSelectorFromString(setter), (IMP)retainSetter, "v@:@");
+                class_addMethod([self class], setterSel, (IMP)retainSetter, "v@:@");
                 break;
             default:
                 break;

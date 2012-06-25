@@ -13,10 +13,10 @@
 
 - (void)performBlock:(VoidBlock)block afterDelay:(NSTimeInterval)delay
 {
-    [self performSelector:@selector(__es_doBlock:) withObject:block afterDelay:delay];
+    [self performSelector:@selector(doBlock:) withObject:block afterDelay:delay];
 }
 
-- (void)__es_doBlock:(VoidBlock)block
+- (void)doBlock:(VoidBlock)block
 {
     if (block) {
         block();
