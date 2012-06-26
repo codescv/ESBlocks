@@ -1,0 +1,232 @@
+//
+//  ESAddressBook.m
+//  ESBlocks
+//
+//  Created by Chi Zhang on 6/25/12.
+//  Copyright (c) 2012 Chi Zhang. All rights reserved.
+//
+
+#import "ESAddressBook.h"
+
+#import "SynthesizeSingleton.h"
+
+@interface ESContact ()
+@property (nonatomic, assign) ABRecordID internalId;
+@end
+
+@implementation ESContact
+
+@synthesize name;
+@synthesize phoneNumbers;
+@synthesize internalId;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.internalId = kABRecordInvalidID;
+    }
+    return self;
+}
+
+- (NSString *)name
+{
+    ABAddressBookRef addressbook = ABAddressBookCreate();
+    ABRecordRef person = ABAddressBookGetPersonWithRecordID(addressbook, self.internalId);
+    NSString *firstName = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonFirstNameProperty);
+    NSString *lastName = (__bridge_transfer NSString *)ABRecordCopyValue(person, kABPersonLastNameProperty);
+    CFRelease(addressbook);
+
+    if (firstName != nil && lastName != nil) {
+        return [firstName stringByAppendingString:lastName];
+    } else if (firstName != nil) {
+        return firstName;
+    } else if (lastName != nil) {
+        return lastName;
+    } else {
+        return @"";
+    }
+}
+
+- (NSArray *)phoneNumbers
+{
+    ABAddressBookRef addressbook = ABAddressBookCreate();
+    ABRecordRef person = ABAddressBookGetPersonWithRecordID(addressbook, self.internalId);
+    ABMutableMultiValueRef phones = ABRecordCopyValue(person, kABPersonPhoneProperty);
+    int count = ABMultiValueGetCount(phones);
+    NSMutableArray *result = [NSMutableArray array];
+    for (int i = 0; i < count; i++) {
+        ABMultiValueIdentifier identifier = ABMultiValueGetIdentifierAtIndex(phones, i);
+        NSString *number = (__bridge_transfer NSString *)ABMultiValueCopyValueAtIndex(phones, i);
+        CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(phones, i);
+        NSString *phoneLabel =(__bridge_transfer NSString *) ABAddressBookCopyLocalizedLabel(locLabel);
+        ESPhoneNumber *phoneNumber = [[ESPhoneNumber alloc] init];
+        phoneNumber.label = phoneLabel;
+        phoneNumber.number = number;
+        phoneNumber.identifier = identifier;
+        [result addObject:phoneNumber];
+    }
+    return result;
+}
+
+- (UIImage *)portraitThumbnail
+{
+    return nil;
+}
+
+@end
+
+@interface ESContactEditor ()
+
+@property (nonatomic, strong) ESContact *contact;
+@property (nonatomic, strong) NSMutableDictionary *editProps;
+@property (nonatomic, strong) NSMutableSet *deleteProps;
+
+@end
+
+@implementation ESContactEditor
+
+@synthesize contact = _contact;
+@synthesize editProps = _editProps;
+@synthesize deleteProps = _deleteProps;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.editProps = [NSMutableDictionary dictionary];
+        self.deleteProps = [NSMutableSet set];
+    }
+    return self;
+}
+
+- (void)save
+{
+    ABAddressBookRef addressbook = ABAddressBookCreate();
+    ABRecordRef person;
+    if (self.contact == nil) {
+        // Add person
+        NSLog(@"create person");
+        person = ABPersonCreate();
+    } else {
+        // Update person
+        if (self.contact.internalId == kABRecordInvalidID) {
+            return;
+        }
+        person = ABAddressBookGetPersonWithRecordID(addressbook, self.contact.internalId);
+    }
+    
+    if (person != NULL) {
+        [self.deleteProps enumerateObjectsUsingBlock:^(NSNumber *prop, BOOL *stop) {
+            ABPropertyID p = [prop intValue];
+            ABRecordRemoveValue(person, p, NULL);
+        }];
+        
+        [self.editProps enumerateKeysAndObjectsUsingBlock:^(NSNumber *prop, id val, BOOL *stop) {
+            ABPropertyID p = [prop intValue];
+            ABRecordSetValue(person, p, (__bridge CFTypeRef)val, NULL);
+        }];
+        
+    }
+    ABAddressBookAddRecord(addressbook, person, NULL);
+    ABAddressBookSave(addressbook, NULL);
+    CFRelease(addressbook);
+}
+
+- (void)editProperty:(ABPropertyID)property value:(id)value
+{
+    [self.editProps setObject:value forKey:[NSNumber numberWithInt:property]];
+}
+
+- (void)deleteProperty:(ABPropertyID)property
+{
+    [self.deleteProps addObject:[NSNumber numberWithInt:property]];
+}
+
+@end
+
+@implementation ESPhoneNumber
+
+@synthesize label;
+@synthesize number;
+@synthesize identifier;
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        self.identifier = kABMultiValueInvalidIdentifier;
+    }
+    return self;
+}
+
+@end
+
+@implementation ESAddressBook
+
+SYNTHESIZE_SINGLETON_FOR_CLASS(ESAddressBook);
+
++ (ESAddressBook *)sharedAddressBook
+{
+    return [self sharedESAddressBook];
+}
+
+- (NSArray *)contactsByMatchingPredicate:(ContactPred)pred
+{
+    ABAddressBookRef addressbook = ABAddressBookCreate();
+    NSArray *allPeople = (__bridge_transfer NSArray *)ABAddressBookCopyArrayOfAllPeople(addressbook);
+    NSMutableArray *contacts = [NSMutableArray array];
+    for (id person in allPeople) {
+        ESContact *contact = [[ESContact alloc] init];
+        ABRecordRef personRef = (__bridge ABRecordRef)person;
+        ABRecordID personId = ABRecordGetRecordID(personRef);
+        contact.internalId = personId;
+        
+        if (pred && pred(contact)) {
+            [contacts addObject:contact];            
+        }
+    }
+    CFRelease(addressbook);
+    return contacts;
+}
+
+- (ESContact *)oneContactMatchingPredicate:(ContactPred)pred
+{
+    return [[self contactsByMatchingPredicate:pred] lastObject];
+}
+
+- (NSArray *)allContacts
+{
+    return [self contactsByMatchingPredicate:^BOOL(ESContact *contact) {
+        return YES;
+    }];
+}
+
+- (void)editContact:(ESContact *)contact actions:(EditContactBlock)actions
+{
+    ESContactEditor *editor = [[ESContactEditor alloc] init];
+    editor.contact = contact;
+    if (actions) {
+        actions(editor);
+    }
+    [editor save];
+}
+
+- (void)createContact:(EditContactBlock)actions
+{
+    [self editContact:nil actions:actions];
+}
+
+- (void)enumerateContactsUsingBlock:(EnumContactBlock)block
+{
+    NSArray *contacts = [self allContacts];
+    BOOL stop = NO;
+    for (ESContact *contact in contacts) {
+        block(contact, &stop);
+        if (stop) {
+            break;
+        }
+    }
+}
+
+@end

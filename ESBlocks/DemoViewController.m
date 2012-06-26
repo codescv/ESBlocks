@@ -9,6 +9,7 @@
 #import "DemoViewController.h"
 #import "UIAlertView+ESBlocks.h"
 #import "UIActionSheet+ESBlocks.h"
+#import "ESAddressBook.h"
 
 @interface DemoViewController ()
 
@@ -41,6 +42,28 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    /*for (int i = 0; i < 10; i++) {
+        //NSString *number = [NSString stringWithFormat:@"%d", i];
+        NSString *name = [NSString stringWithFormat:@"contact_%d", i];
+        [[ESAddressBook sharedAddressBook] createContact:^(ESContactEditor *editor) {
+            NSLog(@"%d", kABPersonFirstNameProperty);
+            [editor editProperty:kABPersonFirstNameProperty value:name];
+        }];
+    }*/
+    
+    /*[[ESAddressBook sharedAddressBook] enumerateContactsUsingBlock:^(ESContact *contact, BOOL *stop) {
+        NSLog(@"contact: %@", contact.name);
+        for (ESPhoneNumber *number in contact.phoneNumbers) {
+            NSLog(@"(%d) number %@ : %@", number.identifier, number.label, number.number);
+        }
+        [[ESAddressBook sharedAddressBook] editContact:contact actions:^(ESContactEditor *editor) {
+            [editor deleteProperty:kABPersonFirstNameProperty];
+        }];
+    }];*/
 }
 
 - (IBAction)showUIAlertViewWithBlocks:(id)sender 

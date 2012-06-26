@@ -18,13 +18,17 @@
 		693542CB1592F87A00CDE389 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693542B21592F87A00CDE389 /* Foundation.framework */; };
 		693542D31592F87A00CDE389 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 693542D11592F87A00CDE389 /* InfoPlist.strings */; };
 		693542D61592F87A00CDE389 /* ESBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 693542D51592F87A00CDE389 /* ESBlocksTests.m */; };
-		693542E11592F8C100CDE389 /* NSObject+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 693542E01592F8C100CDE389 /* NSObject+ESBlocks.m */; };
 		693542E515930F8C00CDE389 /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 693542E415930F8C00CDE389 /* TestObj.m */; };
+		695B9C3D159945A3001C64C7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695B9C3B159945A3001C64C7 /* AddressBook.framework */; };
+		695B9C3E159945A3001C64C7 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695B9C3C159945A3001C64C7 /* AddressBookUI.framework */; };
 		698937641597FF640095CF9A /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937621597FF640095CF9A /* DemoViewController.m */; };
 		698937651597FF640095CF9A /* DemoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 698937631597FF640095CF9A /* DemoViewController.xib */; };
-		6989376A159800570095CF9A /* UIAlertView+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 69893769159800570095CF9A /* UIAlertView+ESBlocks.m */; };
-		698937A81598383A0095CF9A /* UIActionSheet+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937A71598383A0095CF9A /* UIActionSheet+ESBlocks.m */; };
-		69DC282A159321D600EB7025 /* NSObject+ESPropertyGeneration.m in Sources */ = {isa = PBXBuildFile; fileRef = 69DC2829159321D600EB7025 /* NSObject+ESPropertyGeneration.m */; };
+		698937B9159844950095CF9A /* NSObject+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937B0159844950095CF9A /* NSObject+ESBlocks.m */; };
+		698937BA159844950095CF9A /* NSObject+ESPropertyGeneration.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937B2159844950095CF9A /* NSObject+ESPropertyGeneration.m */; };
+		698937BB159844950095CF9A /* NSString+ESAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937B4159844950095CF9A /* NSString+ESAdditions.m */; };
+		698937BC159844950095CF9A /* UIActionSheet+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937B6159844950095CF9A /* UIActionSheet+ESBlocks.m */; };
+		698937BD159844950095CF9A /* UIAlertView+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937B8159844950095CF9A /* UIAlertView+ESBlocks.m */; };
+		698937C315984AE40095CF9A /* ESAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937C215984AE40095CF9A /* ESAddressBook.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,20 +58,27 @@
 		693542D21592F87A00CDE389 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		693542D41592F87A00CDE389 /* ESBlocksTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESBlocksTests.h; sourceTree = "<group>"; };
 		693542D51592F87A00CDE389 /* ESBlocksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESBlocksTests.m; sourceTree = "<group>"; };
-		693542DF1592F8C100CDE389 /* NSObject+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+ESBlocks.h"; path = "Lib/NSObject+ESBlocks.h"; sourceTree = "<group>"; };
-		693542E01592F8C100CDE389 /* NSObject+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+ESBlocks.m"; path = "Lib/NSObject+ESBlocks.m"; sourceTree = "<group>"; };
-		693542E21592F94700CDE389 /* ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ESBlocks.h; path = Lib/ESBlocks.h; sourceTree = "<group>"; };
 		693542E315930F8C00CDE389 /* TestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
 		693542E415930F8C00CDE389 /* TestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObj.m; sourceTree = "<group>"; };
+		695B9C3B159945A3001C64C7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		695B9C3C159945A3001C64C7 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		698937611597FF640095CF9A /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
 		698937621597FF640095CF9A /* DemoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoViewController.m; sourceTree = "<group>"; };
 		698937631597FF640095CF9A /* DemoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoViewController.xib; sourceTree = "<group>"; };
-		69893768159800570095CF9A /* UIAlertView+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIAlertView+ESBlocks.h"; path = "Lib/UIAlertView+ESBlocks.h"; sourceTree = "<group>"; };
-		69893769159800570095CF9A /* UIAlertView+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIAlertView+ESBlocks.m"; path = "Lib/UIAlertView+ESBlocks.m"; sourceTree = "<group>"; };
-		698937A61598383A0095CF9A /* UIActionSheet+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIActionSheet+ESBlocks.h"; path = "Lib/UIActionSheet+ESBlocks.h"; sourceTree = "<group>"; };
-		698937A71598383A0095CF9A /* UIActionSheet+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIActionSheet+ESBlocks.m"; path = "Lib/UIActionSheet+ESBlocks.m"; sourceTree = "<group>"; };
-		69DC2828159321D600EB7025 /* NSObject+ESPropertyGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSObject+ESPropertyGeneration.h"; path = "Lib/NSObject+ESPropertyGeneration.h"; sourceTree = "<group>"; };
-		69DC2829159321D600EB7025 /* NSObject+ESPropertyGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSObject+ESPropertyGeneration.m"; path = "Lib/NSObject+ESPropertyGeneration.m"; sourceTree = "<group>"; };
+		698937AE159844950095CF9A /* ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESBlocks.h; sourceTree = "<group>"; };
+		698937AF159844950095CF9A /* NSObject+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ESBlocks.h"; sourceTree = "<group>"; };
+		698937B0159844950095CF9A /* NSObject+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ESBlocks.m"; sourceTree = "<group>"; };
+		698937B1159844950095CF9A /* NSObject+ESPropertyGeneration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+ESPropertyGeneration.h"; sourceTree = "<group>"; };
+		698937B2159844950095CF9A /* NSObject+ESPropertyGeneration.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+ESPropertyGeneration.m"; sourceTree = "<group>"; };
+		698937B3159844950095CF9A /* NSString+ESAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+ESAdditions.h"; sourceTree = "<group>"; };
+		698937B4159844950095CF9A /* NSString+ESAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+ESAdditions.m"; sourceTree = "<group>"; };
+		698937B5159844950095CF9A /* UIActionSheet+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIActionSheet+ESBlocks.h"; sourceTree = "<group>"; };
+		698937B6159844950095CF9A /* UIActionSheet+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIActionSheet+ESBlocks.m"; sourceTree = "<group>"; };
+		698937B7159844950095CF9A /* UIAlertView+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIAlertView+ESBlocks.h"; sourceTree = "<group>"; };
+		698937B8159844950095CF9A /* UIAlertView+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIAlertView+ESBlocks.m"; sourceTree = "<group>"; };
+		698937C115984AE40095CF9A /* ESAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESAddressBook.h; sourceTree = "<group>"; };
+		698937C215984AE40095CF9A /* ESAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESAddressBook.m; sourceTree = "<group>"; };
+		698937C515984C640095CF9A /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				695B9C3D159945A3001C64C7 /* AddressBook.framework in Frameworks */,
+				695B9C3E159945A3001C64C7 /* AddressBookUI.framework in Frameworks */,
 				693542B11592F87A00CDE389 /* UIKit.framework in Frameworks */,
 				693542B31592F87A00CDE389 /* Foundation.framework in Frameworks */,
 				693542B51592F87A00CDE389 /* CoreGraphics.framework in Frameworks */,
@@ -116,6 +129,8 @@
 		693542AF1592F87A00CDE389 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				695B9C3B159945A3001C64C7 /* AddressBook.framework */,
+				695B9C3C159945A3001C64C7 /* AddressBookUI.framework */,
 				693542B01592F87A00CDE389 /* UIKit.framework */,
 				693542B21592F87A00CDE389 /* Foundation.framework */,
 				693542B41592F87A00CDE389 /* CoreGraphics.framework */,
@@ -127,8 +142,7 @@
 		693542B61592F87A00CDE389 /* ESBlocks */ = {
 			isa = PBXGroup;
 			children = (
-				698937A91598426C0095CF9A /* ESAdditions */,
-				698937671597FF800095CF9A /* ESBlocks */,
+				698937AD159844950095CF9A /* Lib */,
 				693542BF1592F87A00CDE389 /* AppDelegate.h */,
 				693542C01592F87A00CDE389 /* AppDelegate.m */,
 				698937611597FF640095CF9A /* DemoViewController.h */,
@@ -171,27 +185,57 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		698937671597FF800095CF9A /* ESBlocks */ = {
+		698937AD159844950095CF9A /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				693542E21592F94700CDE389 /* ESBlocks.h */,
-				693542DF1592F8C100CDE389 /* NSObject+ESBlocks.h */,
-				693542E01592F8C100CDE389 /* NSObject+ESBlocks.m */,
-				69893768159800570095CF9A /* UIAlertView+ESBlocks.h */,
-				69893769159800570095CF9A /* UIAlertView+ESBlocks.m */,
-				698937A61598383A0095CF9A /* UIActionSheet+ESBlocks.h */,
-				698937A71598383A0095CF9A /* UIActionSheet+ESBlocks.m */,
+				698937C415984C5B0095CF9A /* Utils */,
+				698937C015984AC50095CF9A /* ESAddressBook */,
+				698937BF159844A40095CF9A /* ESBlocks */,
+				698937BE1598449D0095CF9A /* ESAdditions */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		698937BE1598449D0095CF9A /* ESAdditions */ = {
+			isa = PBXGroup;
+			children = (
+				698937B1159844950095CF9A /* NSObject+ESPropertyGeneration.h */,
+				698937B2159844950095CF9A /* NSObject+ESPropertyGeneration.m */,
+				698937B3159844950095CF9A /* NSString+ESAdditions.h */,
+				698937B4159844950095CF9A /* NSString+ESAdditions.m */,
+			);
+			name = ESAdditions;
+			sourceTree = "<group>";
+		};
+		698937BF159844A40095CF9A /* ESBlocks */ = {
+			isa = PBXGroup;
+			children = (
+				698937AE159844950095CF9A /* ESBlocks.h */,
+				698937AF159844950095CF9A /* NSObject+ESBlocks.h */,
+				698937B0159844950095CF9A /* NSObject+ESBlocks.m */,
+				698937B5159844950095CF9A /* UIActionSheet+ESBlocks.h */,
+				698937B6159844950095CF9A /* UIActionSheet+ESBlocks.m */,
+				698937B7159844950095CF9A /* UIAlertView+ESBlocks.h */,
+				698937B8159844950095CF9A /* UIAlertView+ESBlocks.m */,
 			);
 			name = ESBlocks;
 			sourceTree = "<group>";
 		};
-		698937A91598426C0095CF9A /* ESAdditions */ = {
+		698937C015984AC50095CF9A /* ESAddressBook */ = {
 			isa = PBXGroup;
 			children = (
-				69DC2828159321D600EB7025 /* NSObject+ESPropertyGeneration.h */,
-				69DC2829159321D600EB7025 /* NSObject+ESPropertyGeneration.m */,
+				698937C115984AE40095CF9A /* ESAddressBook.h */,
+				698937C215984AE40095CF9A /* ESAddressBook.m */,
 			);
-			name = ESAdditions;
+			name = ESAddressBook;
+			sourceTree = "<group>";
+		};
+		698937C415984C5B0095CF9A /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				698937C515984C640095CF9A /* SynthesizeSingleton.h */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -303,12 +347,14 @@
 			files = (
 				693542BD1592F87A00CDE389 /* main.m in Sources */,
 				693542C11592F87A00CDE389 /* AppDelegate.m in Sources */,
-				693542E11592F8C100CDE389 /* NSObject+ESBlocks.m in Sources */,
 				693542E515930F8C00CDE389 /* TestObj.m in Sources */,
-				69DC282A159321D600EB7025 /* NSObject+ESPropertyGeneration.m in Sources */,
 				698937641597FF640095CF9A /* DemoViewController.m in Sources */,
-				6989376A159800570095CF9A /* UIAlertView+ESBlocks.m in Sources */,
-				698937A81598383A0095CF9A /* UIActionSheet+ESBlocks.m in Sources */,
+				698937B9159844950095CF9A /* NSObject+ESBlocks.m in Sources */,
+				698937BA159844950095CF9A /* NSObject+ESPropertyGeneration.m in Sources */,
+				698937BB159844950095CF9A /* NSString+ESAdditions.m in Sources */,
+				698937BC159844950095CF9A /* UIActionSheet+ESBlocks.m in Sources */,
+				698937BD159844950095CF9A /* UIAlertView+ESBlocks.m in Sources */,
+				698937C315984AE40095CF9A /* ESAddressBook.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
