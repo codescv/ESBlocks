@@ -27,6 +27,10 @@
 - (void)editProperty:(ABPropertyID)property value:(id)value;
 - (void)deleteProperty:(ABPropertyID)property;
 
+- (void)editMultiProperty:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier label:(NSString *)label value:(id)value;
+- (void)deleteMultiProperty:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier;
+- (void)addMultiProperty:(ABPropertyID)property label:(NSString *)label value:(id)value;
+
 @end
 
 @interface ESPhoneNumber : NSObject
@@ -37,9 +41,10 @@
 
 @end
 
+@class ESAddressBook;
 typedef BOOL (^ContactPred)(ESContact *contact);
 typedef void (^EditContactBlock)(ESContactEditor *editor);
-typedef void (^EnumContactBlock)(ESContact *contact, BOOL *stop);
+typedef void (^EnumContactBlock)(ESAddressBook *addressbook, ESContact *contact, BOOL *stop);
 
 @interface ESAddressBook : NSObject
 
@@ -47,6 +52,7 @@ typedef void (^EnumContactBlock)(ESContact *contact, BOOL *stop);
 
 - (void)editContact:(ESContact *)contact actions:(EditContactBlock)actions;
 - (void)createContact:(EditContactBlock)actions;
+- (void)deleteContact:(ESContact *)contact;
 
 - (NSArray *)allContacts;
 - (ESContact *)oneContactMatchingPredicate:(ContactPred)pred;

@@ -30,6 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+
 }
 
 - (void)viewDidUnload
@@ -46,24 +47,29 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    /*for (int i = 0; i < 10; i++) {
-        //NSString *number = [NSString stringWithFormat:@"%d", i];
+    /*for (int i = 0; i < 1000; i++) {
+        NSString *number = [NSString stringWithFormat:@"123%d", i];
         NSString *name = [NSString stringWithFormat:@"contact_%d", i];
         [[ESAddressBook sharedAddressBook] createContact:^(ESContactEditor *editor) {
-            NSLog(@"%d", kABPersonFirstNameProperty);
             [editor editProperty:kABPersonFirstNameProperty value:name];
+            [editor addMultiProperty:kABPersonPhoneProperty label:@"Test" value:number];
+            //[editor editMultiProperty:kABPersonPhoneProperty identifier:0 label:@"test2" value:@"123"];
         }];
     }*/
     
-    /*[[ESAddressBook sharedAddressBook] enumerateContactsUsingBlock:^(ESContact *contact, BOOL *stop) {
-        NSLog(@"contact: %@", contact.name);
-        for (ESPhoneNumber *number in contact.phoneNumbers) {
-            NSLog(@"(%d) number %@ : %@", number.identifier, number.label, number.number);
-        }
-        [[ESAddressBook sharedAddressBook] editContact:contact actions:^(ESContactEditor *editor) {
-            [editor deleteProperty:kABPersonFirstNameProperty];
-        }];
+    /*[[ESAddressBook sharedAddressBook] enumerateContactsUsingBlock:^(ESAddressBook *addressbook, ESContact *contact, BOOL *stop) {
+        [addressbook deleteContact:contact];
     }];*/
+    
+    /*NSArray *contacts = [[ESAddressBook sharedAddressBook] contactsByMatchingPredicate:^BOOL(ESContact *contact) {
+        if ([contact.name isEqualToString:@"contact_1"]) {
+            return YES;
+        }
+        return NO;
+    }];
+    
+    
+    NSLog(@"contacts: %@", contacts);*/
 }
 
 - (IBAction)showUIAlertViewWithBlocks:(id)sender 

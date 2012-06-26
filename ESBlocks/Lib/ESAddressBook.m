@@ -81,6 +81,9 @@
 @property (nonatomic, strong) ESContact *contact;
 @property (nonatomic, strong) NSMutableDictionary *editProps;
 @property (nonatomic, strong) NSMutableSet *deleteProps;
+@property (nonatomic, strong) NSMutableDictionary *addMultiProps;
+@property (nonatomic, strong) NSMutableDictionary *editMultiProps;
+@property (nonatomic, strong) NSMutableDictionary *deleteMultiProps;
 
 @end
 
@@ -89,6 +92,9 @@
 @synthesize contact = _contact;
 @synthesize editProps = _editProps;
 @synthesize deleteProps = _deleteProps;
+@synthesize editMultiProps = _editMultiProps;
+@synthesize deleteMultiProps = _deleteMultiProps;
+@synthesize addMultiProps = _addMultiProps;
 
 - (id)init
 {
@@ -96,6 +102,9 @@
     if (self) {
         self.editProps = [NSMutableDictionary dictionary];
         self.deleteProps = [NSMutableSet set];
+        self.deleteMultiProps = [NSMutableDictionary dictionary];
+        self.editMultiProps = [NSMutableDictionary dictionary];
+        self.addMultiProps = [NSMutableDictionary dictionary];
     }
     return self;
 }
@@ -105,8 +114,7 @@
     ABAddressBookRef addressbook = ABAddressBookCreate();
     ABRecordRef person;
     if (self.contact == nil) {
-        // Add person
-        NSLog(@"create person");
+        // Create new person
         person = ABPersonCreate();
     } else {
         // Update person
@@ -127,8 +135,77 @@
             ABRecordSetValue(person, p, (__bridge CFTypeRef)val, NULL);
         }];
         
+        [self.editMultiProps enumerateKeysAndObjectsUsingBlock:^(NSNumber *prop, NSArray *val, BOOL *stop) {
+            ABPropertyID p = [prop intValue];
+            ABMultiValueIdentifier identifier = [[val objectAtIndex:0] intValue];
+            NSString *label = [val objectAtIndex:1];
+            id value = [val objectAtIndex:2];
+            ABMultiValueRef m = ABRecordCopyValue(person, p);
+            ABMultiValueRef multi;
+            if (m == NULL) {                
+                multi = ABMultiValueCreateMutable(ABPersonGetTypeOfProperty(p)); 
+            } else {
+                multi = ABMultiValueCreateMutableCopy(m);
+            }
+            CFIndex index = ABMultiValueGetIndexForIdentifier(multi, identifier);
+            if (index == kCFNotFound) {
+                return;
+            }
+            if (label != nil) {
+                ABMultiValueReplaceLabelAtIndex(multi, (__bridge CFStringRef)label, index);
+            }
+            if (value != nil) {
+                ABMultiValueReplaceValueAtIndex(multi, (__bridge CFTypeRef)value, index);
+            }
+            ABRecordSetValue(person, p, multi, NULL);
+        }];
+        
+        [self.addMultiProps enumerateKeysAndObjectsUsingBlock:^(NSNumber *prop, NSArray *val, BOOL *stop) {
+            ABPropertyID p = [prop intValue];
+            NSString *label = [val objectAtIndex:0];
+            id value = [val objectAtIndex:1];
+            ABMultiValueRef m = ABRecordCopyValue(person, p);
+            ABMultiValueRef multi;
+            if (m == NULL) {                
+                multi = ABMultiValueCreateMutable(ABPersonGetTypeOfProperty(p)); 
+            } else {
+                multi = ABMultiValueCreateMutableCopy(m);
+            }
+            ABMultiValueAddValueAndLabel(multi, (__bridge CFTypeRef)value, (__bridge CFStringRef)label, NULL);
+            ABRecordSetValue(person, p, multi, NULL);
+        }];
+        
+        [self.deleteMultiProps enumerateKeysAndObjectsUsingBlock:^(NSNumber *prop, id val, BOOL *stop) {
+            ABPropertyID p = [prop intValue];
+            ABMultiValueIdentifier identifier = [val intValue];
+            ABMultiValueRef m = ABRecordCopyValue(person, p);
+            if (m == NULL) {
+                return; // return from block
+            }
+            ABMultiValueRef multi = ABMultiValueCreateMutableCopy(m);
+            CFIndex index = ABMultiValueGetIndexForIdentifier(multi, identifier);
+            if (index == kCFNotFound) {
+                return;
+            }
+            ABMultiValueRemoveValueAndLabelAtIndex(multi, index);
+            ABRecordSetValue(person, p, multi, NULL);
+        }];
     }
+    
     ABAddressBookAddRecord(addressbook, person, NULL);
+    ABAddressBookSave(addressbook, NULL);
+    CFRelease(addressbook);
+}
+
+- (void)deleteSelf
+{
+    if (self.contact.internalId == kABRecordInvalidID) {
+        return;
+    }
+    
+    ABAddressBookRef addressbook = ABAddressBookCreate();
+    ABRecordRef person = ABAddressBookGetPersonWithRecordID(addressbook, self.contact.internalId);
+    ABAddressBookRemoveRecord(addressbook, person, NULL);
     ABAddressBookSave(addressbook, NULL);
     CFRelease(addressbook);
 }
@@ -141,6 +218,24 @@
 - (void)deleteProperty:(ABPropertyID)property
 {
     [self.deleteProps addObject:[NSNumber numberWithInt:property]];
+}
+
+- (void)addMultiProperty:(ABPropertyID)property label:(NSString *)label value:(id)value
+{
+    NSArray *val = [NSArray arrayWithObjects:label, value, nil];
+    [self.addMultiProps setObject:val forKey:[NSNumber numberWithInt:property]];
+
+}
+
+- (void)editMultiProperty:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier label:(NSString *)label value:(id)value
+{
+    NSArray *val = [NSArray arrayWithObjects:[NSNumber numberWithInt:identifier], label, value, nil];
+    [self.editMultiProps setObject:val forKey:[NSNumber numberWithInt:property]];
+}
+
+- (void)deleteMultiProperty:(ABPropertyID)property identifier:(ABMultiValueIdentifier)identifier
+{
+    [self.deleteMultiProps setObject:[NSNumber numberWithInt:identifier] forKey:[NSNumber numberWithInt:property]];
 }
 
 @end
@@ -165,6 +260,18 @@
 @implementation ESAddressBook
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(ESAddressBook);
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        // prevent strange (possibly buggy code by apple) behaviours:
+        // if kABPersonPhoneProperty is accessed before any calls to ABAddressBookCreate(), then its value will be zero.
+        ABRecordRef addressbook = ABAddressBookCreate();
+        CFRelease(addressbook);
+    }
+    return self;
+}
 
 + (ESAddressBook *)sharedAddressBook
 {
@@ -217,12 +324,20 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ESAddressBook);
     [self editContact:nil actions:actions];
 }
 
+- (void)deleteContact:(ESContact *)contact
+{
+    ESContactEditor *editor = [[ESContactEditor alloc] init];
+    editor.contact = contact;
+    [editor deleteSelf];
+}
+
 - (void)enumerateContactsUsingBlock:(EnumContactBlock)block
 {
     NSArray *contacts = [self allContacts];
     BOOL stop = NO;
     for (ESContact *contact in contacts) {
-        block(contact, &stop);
+        ESAddressBook *addressbook = self;
+        block(addressbook, contact, &stop);
         if (stop) {
             break;
         }
