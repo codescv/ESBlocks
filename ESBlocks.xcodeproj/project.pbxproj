@@ -19,6 +19,14 @@
 		693542D31592F87A00CDE389 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 693542D11592F87A00CDE389 /* InfoPlist.strings */; };
 		693542D61592F87A00CDE389 /* ESBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 693542D51592F87A00CDE389 /* ESBlocksTests.m */; };
 		693542E515930F8C00CDE389 /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 693542E415930F8C00CDE389 /* TestObj.m */; };
+		695271401599BF6E00091769 /* UIViewController+ShowAsDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */; };
+		695271451599BF7F00091769 /* DialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695271431599BF7F00091769 /* DialogViewController.m */; };
+		695271461599BF7F00091769 /* DialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 695271441599BF7F00091769 /* DialogViewController.xib */; };
+		6952714A1599C01600091769 /* alert-view-bg-portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 695271481599C01600091769 /* alert-view-bg-portrait.png */; };
+		6952714B1599C01600091769 /* alert-view-bg-portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 695271491599C01600091769 /* alert-view-bg-portrait@2x.png */; };
+		6952714C1599C0B400091769 /* UIViewController+ShowAsDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */; };
+		6952714D1599C0BB00091769 /* DialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695271431599BF7F00091769 /* DialogViewController.m */; };
+		6952714E1599C2EC00091769 /* DialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 695271441599BF7F00091769 /* DialogViewController.xib */; };
 		695B9C3D159945A3001C64C7 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695B9C3B159945A3001C64C7 /* AddressBook.framework */; };
 		695B9C3E159945A3001C64C7 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 695B9C3C159945A3001C64C7 /* AddressBookUI.framework */; };
 		698937641597FF640095CF9A /* DemoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937621597FF640095CF9A /* DemoViewController.m */; };
@@ -60,6 +68,13 @@
 		693542D51592F87A00CDE389 /* ESBlocksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESBlocksTests.m; sourceTree = "<group>"; };
 		693542E315930F8C00CDE389 /* TestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
 		693542E415930F8C00CDE389 /* TestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObj.m; sourceTree = "<group>"; };
+		6952713E1599BF6E00091769 /* UIViewController+ShowAsDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowAsDialog.h"; sourceTree = "<group>"; };
+		6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowAsDialog.m"; sourceTree = "<group>"; };
+		695271421599BF7F00091769 /* DialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogViewController.h; sourceTree = "<group>"; };
+		695271431599BF7F00091769 /* DialogViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DialogViewController.m; sourceTree = "<group>"; };
+		695271441599BF7F00091769 /* DialogViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DialogViewController.xib; sourceTree = "<group>"; };
+		695271481599C01600091769 /* alert-view-bg-portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-view-bg-portrait.png"; sourceTree = "<group>"; };
+		695271491599C01600091769 /* alert-view-bg-portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-view-bg-portrait@2x.png"; sourceTree = "<group>"; };
 		695B9C3B159945A3001C64C7 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		695B9C3C159945A3001C64C7 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		698937611597FF640095CF9A /* DemoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoViewController.h; sourceTree = "<group>"; };
@@ -145,11 +160,15 @@
 				698937AD159844950095CF9A /* Lib */,
 				693542BF1592F87A00CDE389 /* AppDelegate.h */,
 				693542C01592F87A00CDE389 /* AppDelegate.m */,
+				695271421599BF7F00091769 /* DialogViewController.h */,
+				695271431599BF7F00091769 /* DialogViewController.m */,
+				695271441599BF7F00091769 /* DialogViewController.xib */,
 				698937611597FF640095CF9A /* DemoViewController.h */,
 				698937621597FF640095CF9A /* DemoViewController.m */,
 				698937631597FF640095CF9A /* DemoViewController.xib */,
 				693542E315930F8C00CDE389 /* TestObj.h */,
 				693542E415930F8C00CDE389 /* TestObj.m */,
+				695271471599BFF400091769 /* Resources */,
 				693542B71592F87A00CDE389 /* Supporting Files */,
 			);
 			path = ESBlocks;
@@ -185,10 +204,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		6952712215998CC200091769 /* ESUI */ = {
+			isa = PBXGroup;
+			children = (
+				6952713E1599BF6E00091769 /* UIViewController+ShowAsDialog.h */,
+				6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */,
+			);
+			name = ESUI;
+			sourceTree = "<group>";
+		};
+		695271471599BFF400091769 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				695271481599C01600091769 /* alert-view-bg-portrait.png */,
+				695271491599C01600091769 /* alert-view-bg-portrait@2x.png */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		698937AD159844950095CF9A /* Lib */ = {
 			isa = PBXGroup;
 			children = (
 				698937C415984C5B0095CF9A /* Utils */,
+				6952712215998CC200091769 /* ESUI */,
 				698937C015984AC50095CF9A /* ESAddressBook */,
 				698937BF159844A40095CF9A /* ESBlocks */,
 				698937BE1598449D0095CF9A /* ESAdditions */,
@@ -309,8 +347,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6952714E1599C2EC00091769 /* DialogViewController.xib in Resources */,
 				693542BB1592F87A00CDE389 /* InfoPlist.strings in Resources */,
 				698937651597FF640095CF9A /* DemoViewController.xib in Resources */,
+				6952714A1599C01600091769 /* alert-view-bg-portrait.png in Resources */,
+				6952714B1599C01600091769 /* alert-view-bg-portrait@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,6 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				693542D31592F87A00CDE389 /* InfoPlist.strings in Resources */,
+				695271461599BF7F00091769 /* DialogViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +387,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6952714D1599C0BB00091769 /* DialogViewController.m in Sources */,
+				6952714C1599C0B400091769 /* UIViewController+ShowAsDialog.m in Sources */,
 				693542BD1592F87A00CDE389 /* main.m in Sources */,
 				693542C11592F87A00CDE389 /* AppDelegate.m in Sources */,
 				693542E515930F8C00CDE389 /* TestObj.m in Sources */,
@@ -363,6 +407,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				693542D61592F87A00CDE389 /* ESBlocksTests.m in Sources */,
+				695271401599BF6E00091769 /* UIViewController+ShowAsDialog.m in Sources */,
+				695271451599BF7F00091769 /* DialogViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

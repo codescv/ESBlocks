@@ -11,6 +11,9 @@
 #import "UIActionSheet+ESBlocks.h"
 #import "ESAddressBook.h"
 
+#import "DialogViewController.h"
+#import "UIViewController+ShowAsDialog.h"
+
 @interface DemoViewController ()
 
 @end
@@ -93,6 +96,12 @@
                                                        NSLog(@"dismissed: %d", buttonIndex);
                                                    }];
     [as show];
+}
+
+- (IBAction)showCustomDialog:(id)sender
+{
+    DialogViewController *dvc = [[DialogViewController alloc] init];
+    [dvc showAsDialog];
 }
 
 @end
