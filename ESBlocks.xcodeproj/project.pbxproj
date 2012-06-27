@@ -23,6 +23,9 @@
 		693542D31592F87A00CDE389 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 693542D11592F87A00CDE389 /* InfoPlist.strings */; };
 		693542D61592F87A00CDE389 /* ESBlocksTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 693542D51592F87A00CDE389 /* ESBlocksTests.m */; };
 		693542E515930F8C00CDE389 /* TestObj.m in Sources */ = {isa = PBXBuildFile; fileRef = 693542E415930F8C00CDE389 /* TestObj.m */; };
+		693E7675159AA98200F0882B /* ESLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 693E7670159AA98000F0882B /* ESLog.m */; };
+		693E7676159AA98200F0882B /* ESStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 693E7672159AA98100F0882B /* ESStatusBarNotification.m */; };
+		693E7677159AA98200F0882B /* UIView+ESAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 693E7674159AA98200F0882B /* UIView+ESAdditions.m */; };
 		695271401599BF6E00091769 /* UIViewController+ShowAsDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */; };
 		695271451599BF7F00091769 /* DialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695271431599BF7F00091769 /* DialogViewController.m */; };
 		695271461599BF7F00091769 /* DialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 695271441599BF7F00091769 /* DialogViewController.xib */; };
@@ -76,6 +79,12 @@
 		693542D51592F87A00CDE389 /* ESBlocksTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ESBlocksTests.m; sourceTree = "<group>"; };
 		693542E315930F8C00CDE389 /* TestObj.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestObj.h; sourceTree = "<group>"; };
 		693542E415930F8C00CDE389 /* TestObj.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestObj.m; sourceTree = "<group>"; };
+		693E766F159AA98000F0882B /* ESLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESLog.h; sourceTree = "<group>"; };
+		693E7670159AA98000F0882B /* ESLog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESLog.m; sourceTree = "<group>"; };
+		693E7671159AA98100F0882B /* ESStatusBarNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESStatusBarNotification.h; sourceTree = "<group>"; };
+		693E7672159AA98100F0882B /* ESStatusBarNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESStatusBarNotification.m; sourceTree = "<group>"; };
+		693E7673159AA98100F0882B /* UIView+ESAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ESAdditions.h"; sourceTree = "<group>"; };
+		693E7674159AA98200F0882B /* UIView+ESAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ESAdditions.m"; sourceTree = "<group>"; };
 		6952713E1599BF6E00091769 /* UIViewController+ShowAsDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowAsDialog.h"; sourceTree = "<group>"; };
 		6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowAsDialog.m"; sourceTree = "<group>"; };
 		695271421599BF7F00091769 /* DialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogViewController.h; sourceTree = "<group>"; };
@@ -217,6 +226,10 @@
 			children = (
 				6952713E1599BF6E00091769 /* UIViewController+ShowAsDialog.h */,
 				6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */,
+				693E7673159AA98100F0882B /* UIView+ESAdditions.h */,
+				693E7674159AA98200F0882B /* UIView+ESAdditions.m */,
+				693E7671159AA98100F0882B /* ESStatusBarNotification.h */,
+				693E7672159AA98100F0882B /* ESStatusBarNotification.m */,
 			);
 			name = ESUI;
 			sourceTree = "<group>";
@@ -284,6 +297,8 @@
 			isa = PBXGroup;
 			children = (
 				698937C515984C640095CF9A /* SynthesizeSingleton.h */,
+				693E766F159AA98000F0882B /* ESLog.h */,
+				693E7670159AA98000F0882B /* ESLog.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -415,6 +430,9 @@
 				698937BC159844950095CF9A /* UIActionSheet+ESBlocks.m in Sources */,
 				698937BD159844950095CF9A /* UIAlertView+ESBlocks.m in Sources */,
 				698937C315984AE40095CF9A /* ESAddressBook.m in Sources */,
+				693E7675159AA98200F0882B /* ESLog.m in Sources */,
+				693E7676159AA98200F0882B /* ESStatusBarNotification.m in Sources */,
+				693E7677159AA98200F0882B /* UIView+ESAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

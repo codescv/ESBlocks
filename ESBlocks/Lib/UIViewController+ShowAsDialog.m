@@ -1,9 +1,10 @@
 //
 //  UIViewController+ShowAsDialog.m
-//  CustomizedAlertViewDemo
+//  ESBlocks
 //
+//  Inspired by git://github.com/CocoaBob/CustomizedAlertViewDemo.git
 //  Created by Chi Zhang on 6/26/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Chi Zhang. All rights reserved.
 //
 
 #import "UIViewController+ShowAsDialog.h"

@@ -7,7 +7,7 @@
 //
 
 #import "NSObject+ESPropertyGeneration.h"
-
+#import "ESLog.h"
 #import <objc/runtime.h>
 
 @interface NSObject (ESPropertyGenerationPrivate)
@@ -45,7 +45,7 @@ static NSString *keyFromSetter(Class class, NSString *setter)
 static void setKey(Class class, NSString *propName)
 {
     NSString *keyStr = keyFromGetter(class, propName);
-    NSLog(@"set key: %@", keyStr);
+    ESLogd(@"set key: %@", keyStr);
     if (keys == nil) {
         keys = [[NSMutableDictionary alloc] init];
     }
@@ -58,7 +58,7 @@ static void *getKey(Class class, NSString *propName)
         return nil;
     }
     while (class) {
-        NSLog(@"finding in %@", class);
+        ESLogd(@"finding in %@", class);
         NSString *keyStr = keyFromGetter(class, propName);
         void *key = (__bridge void *)[keys objectForKey:keyStr];
         if (key) {
@@ -74,7 +74,7 @@ static id dynamicGetter(id self, SEL _cmd)
     NSString *sel = NSStringFromSelector(_cmd);
     void *key = getKey([self class], sel);
     id result = [self ivarForKey:key];
-    NSLog(@"key %@ result: %@", key, result);
+    ESLogd(@"key %@ result: %@", key, result);
     return result;
 }
 
@@ -114,7 +114,7 @@ static void copySetter(id self, SEL _cmd, id obj)
     if (!class_getInstanceMethod([self class], getterSel)) {
         class_addMethod([self class], getterSel, (IMP)dynamicGetter, "@@:");
     } else {
-        NSLog(@"method already defined");
+        ESLogd(@"method already defined");
     }
     if (!class_getInstanceMethod([self class], setterSel)) {
         switch (type) {
@@ -131,20 +131,20 @@ static void copySetter(id self, SEL _cmd, id obj)
                 break;
         }
     } else {
-        NSLog(@"method already defined");
+        ESLogd(@"method already defined");
     }
     setKey([self class], propName);
 }
 
 - (id)ivarForKey:(void *)key
 {
-    NSLog(@"ivar for %@", key);
+    ESLogd(@"ivar for %@", key);
     return objc_getAssociatedObject(self, key);
 }
 
 - (void)setIVar:(id)var forKey:(void *)key type:(ESPropertyType)type
 {
-    NSLog(@"set ivar for %@", key);
+    ESLogd(@"set ivar for %@", key);
     objc_AssociationPolicy policy = [self typeToPolicy:type];
     objc_setAssociatedObject(self, key, var, policy);
 }

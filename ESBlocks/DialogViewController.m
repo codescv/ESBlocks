@@ -1,13 +1,15 @@
 //
 //  DialogViewController.m
-//  CustomizedAlertViewDemo
+//  ESBlocks
 //
 //  Created by Chi Zhang on 6/26/12.
-//  Copyright (c) 2012 __MyCompanyName__. All rights reserved.
+//  Copyright (c) 2012 Chi Zhang. All rights reserved.
 //
 
 #import "DialogViewController.h"
 #import "UIViewController+ShowAsDialog.h"
+
+#import "ESLog.h"
 
 @interface DialogViewController ()
 
@@ -25,11 +27,6 @@
     return self;
 }
 
-- (void)dealloc
-{
-    NSLog(@"dealloc windows: %@", [UIApplication sharedApplication].windows);
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -45,29 +42,10 @@
     // e.g. self.myOutlet = nil;
 }
 
-- (void)viewWillDisappear:(BOOL)animated
-{
-    NSLog(@"view will disappear");
-}
-
-- (void)viewDidDisappear:(BOOL)animated
-{
-    NSLog(@"view did disappear");
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    NSLog(@"view will appear");
-}
-
-- (void)viewDidAppear:(BOOL)animated
-{
-    NSLog(@"view did appear");
-}
-
 - (void)viewWillDisappearAsDialog
 {
-    NSLog(@"will disappear as dialog");
+    ESLogt();
+    //ESLogtt();
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

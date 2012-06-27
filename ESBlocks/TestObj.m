@@ -7,6 +7,7 @@
 //
 
 #import "TestObj.h"
+#import "ESLog.h"
 
 @implementation TestObj
 
@@ -14,7 +15,7 @@
 
 - (void)dealloc
 {
-    NSLog(@"dealloc: %@", self.name);
+    ESLogd(@"dealloc: %@", self.name);
 }
 
 @end

@@ -7,6 +7,7 @@
 //
 
 #import "NSString+ESAdditions.h"
+#import "ESLog.h"
 
 @implementation NSString (ESAdditions)
 
@@ -37,11 +38,11 @@
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
     if (error) {
-        NSLog(@"error creating regex pattern %@ error %@", pattern, [error localizedDescription]);
+        ESLoge(@"error creating regex pattern %@ error %@", pattern, [error localizedDescription]);
         return NO;
     }
     NSTextCheckingResult *match = [regex firstMatchInString:self options:0 range:NSMakeRange(0, [self length])];
-    NSLog(@"matche: %@", match);
+    ESLogd(@"matche: %@", match);
     if (match == nil) {
         return NO;
     }
@@ -53,7 +54,7 @@
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
     if (error) {
-        NSLog(@"error creating regex pattern %@ error %@", pattern, [error localizedDescription]);
+        ESLoge(@"error creating regex pattern %@ error %@", pattern, [error localizedDescription]);
         return self;
     }
     NSTextCheckingResult *match = [regex firstMatchInString:self options:0 range:NSMakeRange(0, [self length])];
@@ -66,7 +67,7 @@
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
     if (error) {
-        NSLog(@"error creating regex pattern %@ error %@", pattern, [error localizedDescription]);
+        ESLoge(@"error creating regex pattern %@ error %@", pattern, [error localizedDescription]);
         return self;
     }
     return [regex stringByReplacingMatchesInString:self options:0 range:NSMakeRange(0, [self length]) withTemplate:replacement];
@@ -77,7 +78,7 @@
     NSError *error = nil;
     NSRegularExpression *regex = [NSRegularExpression regularExpressionWithPattern:pattern options:0 error:&error];
     if (error) {
-        NSLog(@"error creating regex pattern %@ error %@", pattern, [error localizedDescription]);
+        ESLoge(@"error creating regex pattern %@ error %@", pattern, [error localizedDescription]);
         return nil;
     }
     
