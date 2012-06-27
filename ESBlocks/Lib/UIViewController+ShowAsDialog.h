@@ -8,7 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIViewController (ShowAsDialog)
+@protocol UIViewControllerAsDialog
+@optional
+// View Controllers can override these methods to provide behaviours when shown/dismissed as a dialog
+- (void)viewWillAppearAsDialog;
+- (void)viewDidAppearAsDialog;
+- (void)viewWillDisappearAsDialog;
+- (void)viewDidDisappearAsDialog;
+@end
+
+@interface UIViewController (ShowAsDialog) <UIViewControllerAsDialog>
 
 - (void)showAsDialog;
 - (void)dismissDialog;

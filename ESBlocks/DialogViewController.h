@@ -11,5 +11,6 @@
 @interface DialogViewController : UIViewController
 @property (retain, nonatomic) IBOutlet UIImageView *backgroundImageView;
 - (IBAction)cancelClicked:(id)sender;
+- (IBAction)okClicked:(id)sender;
 
 @end

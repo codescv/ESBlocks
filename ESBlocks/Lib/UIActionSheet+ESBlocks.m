@@ -49,7 +49,7 @@ static ESBlocksActionSheetDelegate *_es_block_delegate = NULL;
 
 - (void)show
 {
-    [self showInView:[UIApplication sharedApplication].keyWindow.rootViewController.view];
+    [self showInView:[UIApplication sharedApplication].delegate.window.rootViewController.view];
 }
 
 - (id)initWithTitle:(NSString *)title

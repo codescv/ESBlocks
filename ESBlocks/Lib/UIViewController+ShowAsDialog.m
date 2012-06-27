@@ -11,6 +11,9 @@
 @implementation UIViewController (ShowAsDialog)
 
 static UIWindow *maskWindow = nil;
+static UIWindow *disappearingMaskWindow = nil;
+static UIViewController *dialogViewController = nil;
+static UIViewController *disappearingDialogViewController = nil;
 static CGFloat kTransitionDuration = 0.3f;
 
 - (CGAffineTransform)transformForOrientation {
@@ -33,6 +36,8 @@ static CGFloat kTransitionDuration = 0.3f;
         return;
     }
     
+    dialogViewController = self;
+    
     maskWindow = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     maskWindow.windowLevel = UIWindowLevelStatusBar;
     maskWindow.backgroundColor = [UIColor clearColor];
@@ -48,6 +53,10 @@ static CGFloat kTransitionDuration = 0.3f;
     self.view.transform = CGAffineTransformScale([self transformForOrientation], 0.001, 0.001);
     self.view.center = dialogBackgroundView.center;
     
+    if ([self respondsToSelector:@selector(viewWillAppearAsDialog)]) {
+        [self viewWillAppearAsDialog];
+    }
+        
     // Pop animation: dialog size from 1.0 -> 1.1 -> 0.9 -> 1.0
     [UIView animateWithDuration:kTransitionDuration/1.5
                      animations:^{
@@ -65,7 +74,9 @@ static CGFloat kTransitionDuration = 0.3f;
                                                                    self.view.transform = [self transformForOrientation];
                                                                } 
                                                                completion:^(BOOL finished) {
-                                                                   
+                                                                   if ([self respondsToSelector:@selector(viewDidAppearAsDialog)]) {
+                                                                       [self viewDidAppearAsDialog];
+                                                                   }
                                                                }];
                                           }];
                          
@@ -75,22 +86,35 @@ static CGFloat kTransitionDuration = 0.3f;
 
 - (void)dismissDialog
 {
-    if (!maskWindow) {
+    if (!maskWindow || !dialogViewController) {
         // be nice
         // ignore when no dialog is shown
         return;
     }
+        
+    disappearingDialogViewController = dialogViewController;
+    dialogViewController = nil;
+    
+    disappearingMaskWindow = maskWindow;
+    maskWindow = nil;
+    
+    if ([self respondsToSelector:@selector(viewWillDisappearAsDialog)]) {
+        [disappearingDialogViewController viewWillDisappearAsDialog];
+    }
     
     [UIView animateWithDuration:kTransitionDuration/2
                      animations:^{
-                         maskWindow.alpha = 0.0f;
+                         disappearingMaskWindow.alpha = 0.0f;
                      } 
                      completion:^(BOOL finished) {
-                         maskWindow.windowLevel = UIWindowLevelNormal;
-                         maskWindow = nil;
+                         disappearingMaskWindow.windowLevel = UIWindowLevelNormal;
+                         disappearingMaskWindow = nil;
                          [[[UIApplication sharedApplication].delegate window] makeKeyAndVisible];
+                         if ([self respondsToSelector:@selector(viewDidDisappearAsDialog)]) {
+                             [disappearingDialogViewController viewDidDisappearAsDialog];
+                         }
+                         disappearingDialogViewController = nil;
                      }];
-
 }
 
 @end
