@@ -12,8 +12,11 @@
 #import "UIView+ESAdditions.h"
 #import "ESLog.h"
 
+#import "PopupViewController.h"
+
 @interface ESComposeViewController ()
 
+@property (weak, nonatomic) IBOutlet UITextView *textView;
 @property (assign, nonatomic) CGFloat minHeight;
 @property (assign, nonatomic) CGFloat maxHeight;
 
@@ -22,7 +25,11 @@
 @implementation ESComposeViewController
 
 @synthesize textView = _textView;
+
 @synthesize onResize = _onResize;
+@synthesize onSend = _onSend;
+@synthesize onAttach = _onAttach;
+
 @synthesize maxNumberOfLines = _maxNumberOfLines;
 @synthesize minNumberOfLines = _minNumberOfLines;
 @synthesize minHeight = _minHeight;
@@ -130,12 +137,16 @@
 
 - (IBAction)attachClicked:(id)sender
 {
-    [[ESKeyboardManager sharedManager] dismissKeyboard];
+    if (self.onAttach) {
+        self.onAttach();
+    }
 }
 
 - (IBAction)sendClicked:(id)sender
 {
-    self.text = @"";
+    if (self.onSend) {
+        self.onSend();
+    }
 }
 
 #pragma mark - TextView Delegate

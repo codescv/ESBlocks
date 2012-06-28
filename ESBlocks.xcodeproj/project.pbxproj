@@ -47,6 +47,9 @@
 		698937BC159844950095CF9A /* UIActionSheet+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937B6159844950095CF9A /* UIActionSheet+ESBlocks.m */; };
 		698937BD159844950095CF9A /* UIAlertView+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937B8159844950095CF9A /* UIAlertView+ESBlocks.m */; };
 		698937C315984AE40095CF9A /* ESAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 698937C215984AE40095CF9A /* ESAddressBook.m */; };
+		69A704AA159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704A9159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m */; };
+		69A704B4159BF63100FD0A69 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704B2159BF62F00FD0A69 /* PopupViewController.m */; };
+		69A704B5159BF63100FD0A69 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A704B3159BF63000FD0A69 /* PopupViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -119,6 +122,11 @@
 		698937C115984AE40095CF9A /* ESAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESAddressBook.h; sourceTree = "<group>"; };
 		698937C215984AE40095CF9A /* ESAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESAddressBook.m; sourceTree = "<group>"; };
 		698937C515984C640095CF9A /* SynthesizeSingleton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SynthesizeSingleton.h; sourceTree = "<group>"; };
+		69A704A8159BF57A00FD0A69 /* UIViewController+ShowAsPopup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowAsPopup.h"; sourceTree = "<group>"; };
+		69A704A9159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowAsPopup.m"; sourceTree = "<group>"; };
+		69A704B1159BF62E00FD0A69 /* PopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
+		69A704B2159BF62F00FD0A69 /* PopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
+		69A704B3159BF63000FD0A69 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -185,12 +193,15 @@
 				698937AD159844950095CF9A /* Lib */,
 				693542BF1592F87A00CDE389 /* AppDelegate.h */,
 				693542C01592F87A00CDE389 /* AppDelegate.m */,
-				695271421599BF7F00091769 /* DialogViewController.h */,
-				695271431599BF7F00091769 /* DialogViewController.m */,
-				695271441599BF7F00091769 /* DialogViewController.xib */,
 				698937611597FF640095CF9A /* DemoViewController.h */,
 				698937621597FF640095CF9A /* DemoViewController.m */,
 				698937631597FF640095CF9A /* DemoViewController.xib */,
+				695271421599BF7F00091769 /* DialogViewController.h */,
+				695271431599BF7F00091769 /* DialogViewController.m */,
+				695271441599BF7F00091769 /* DialogViewController.xib */,
+				69A704B1159BF62E00FD0A69 /* PopupViewController.h */,
+				69A704B2159BF62F00FD0A69 /* PopupViewController.m */,
+				69A704B3159BF63000FD0A69 /* PopupViewController.xib */,
 				693542E315930F8C00CDE389 /* TestObj.h */,
 				693542E415930F8C00CDE389 /* TestObj.m */,
 				695271471599BFF400091769 /* Resources */,
@@ -234,6 +245,8 @@
 			children = (
 				6952713E1599BF6E00091769 /* UIViewController+ShowAsDialog.h */,
 				6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */,
+				69A704A8159BF57A00FD0A69 /* UIViewController+ShowAsPopup.h */,
+				69A704A9159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m */,
 				693E7673159AA98100F0882B /* UIView+ESAdditions.h */,
 				693E7674159AA98200F0882B /* UIView+ESAdditions.m */,
 				693E7671159AA98100F0882B /* ESStatusBarNotification.h */,
@@ -397,6 +410,7 @@
 				691453CF159A9A17007DA632 /* alert-view-ok-button.png in Resources */,
 				691453D0159A9A17007DA632 /* alert-view-ok-button@2x.png in Resources */,
 				693E767D159ADEB500F0882B /* ESComposeViewController.xib in Resources */,
+				69A704B5159BF63100FD0A69 /* PopupViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -449,6 +463,8 @@
 				693E7677159AA98200F0882B /* UIView+ESAdditions.m in Sources */,
 				693E767C159ADEB500F0882B /* ESComposeViewController.m in Sources */,
 				693E7680159AE01800F0882B /* ESKeyboardManager.m in Sources */,
+				69A704AA159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m in Sources */,
+				69A704B4159BF63100FD0A69 /* PopupViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -21,15 +21,20 @@
 #import "ESKeyboardManager.h"
 #import "ESLog.h"
 
+#import "PopupViewController.h"
+#import "UIViewController+ShowAsPopup.h"
+
 @interface DemoViewController ()
 
-@property (nonatomic, strong) ESComposeViewController *composeViewController;
+@property (strong, nonatomic) ESComposeViewController *composeViewController;
+@property (strong, nonatomic) PopupViewController *popUpViewController;
 
 @end
 
 @implementation DemoViewController
 
 @synthesize composeViewController;
+@synthesize popUpViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -44,6 +49,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.popUpViewController = [[PopupViewController alloc] init];
+    
     self.composeViewController = [[ESComposeViewController alloc] init];
     self.composeViewController.maxNumberOfLines = 6;
     self.composeViewController.minNumberOfLines = 1;
@@ -53,6 +60,17 @@
         self.composeViewController.view.bottom = keyboardTop;
     };
     self.composeViewController.text = @"abcdef\ndkdj\nall\n";
+    
+    self.composeViewController.onAttach = ^{
+        CGPoint pt = CGPointMake(self.view.width / 2, self.view.height / 2);
+        [self.popUpViewController showAsPopupFromPoint:pt inView:self.view];
+    };
+    
+    self.composeViewController.onSend = ^ {
+        [[ESKeyboardManager sharedManager] dismissKeyboard];
+        self.composeViewController.text = @"";
+    };
+    
     [self.view addSubview:self.composeViewController.view];
 
     [self registerNotification:UIKeyboardWillShowNotification
@@ -83,6 +101,7 @@
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
     self.composeViewController = nil;
+    self.popUpViewController = nil;
     [self unregisterNotification:UIKeyboardWillShowNotification];
     [self unregisterNotification:UIKeyboardWillHideNotification];
 }
