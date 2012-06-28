@@ -52,6 +52,10 @@
 		69A704B5159BF63100FD0A69 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A704B3159BF63000FD0A69 /* PopupViewController.xib */; };
 		69A704B8159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704B7159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m */; };
 		69A704BA159C0F5900FD0A69 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A704B9159C0F5900FD0A69 /* MobileCoreServices.framework */; };
+		69A704BD159C349000FD0A69 /* ESGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704BC159C348F00FD0A69 /* ESGridView.m */; };
+		69A704C1159C41F500FD0A69 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704BF159C41F300FD0A69 /* GridViewController.m */; };
+		69A704C2159C41F500FD0A69 /* GridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A704C0159C41F400FD0A69 /* GridViewController.xib */; };
+		69A704C5159C494700FD0A69 /* UIViewController+ESAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704C4159C494600FD0A69 /* UIViewController+ESAdditions.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,6 +136,13 @@
 		69A704B6159C09BE00FD0A69 /* UIViewController+ShowImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowImagePicker.h"; sourceTree = "<group>"; };
 		69A704B7159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowImagePicker.m"; sourceTree = "<group>"; };
 		69A704B9159C0F5900FD0A69 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		69A704BB159C348F00FD0A69 /* ESGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESGridView.h; sourceTree = "<group>"; };
+		69A704BC159C348F00FD0A69 /* ESGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESGridView.m; sourceTree = "<group>"; };
+		69A704BE159C41F200FD0A69 /* GridViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GridViewController.h; sourceTree = "<group>"; };
+		69A704BF159C41F300FD0A69 /* GridViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GridViewController.m; sourceTree = "<group>"; };
+		69A704C0159C41F400FD0A69 /* GridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridViewController.xib; sourceTree = "<group>"; };
+		69A704C3159C494600FD0A69 /* UIViewController+ESAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ESAdditions.h"; sourceTree = "<group>"; };
+		69A704C4159C494600FD0A69 /* UIViewController+ESAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ESAdditions.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -209,6 +220,9 @@
 				69A704B1159BF62E00FD0A69 /* PopupViewController.h */,
 				69A704B2159BF62F00FD0A69 /* PopupViewController.m */,
 				69A704B3159BF63000FD0A69 /* PopupViewController.xib */,
+				69A704BE159C41F200FD0A69 /* GridViewController.h */,
+				69A704BF159C41F300FD0A69 /* GridViewController.m */,
+				69A704C0159C41F400FD0A69 /* GridViewController.xib */,
 				693542E315930F8C00CDE389 /* TestObj.h */,
 				693542E415930F8C00CDE389 /* TestObj.m */,
 				695271471599BFF400091769 /* Resources */,
@@ -252,6 +266,10 @@
 			children = (
 				693E7673159AA98100F0882B /* UIView+ESAdditions.h */,
 				693E7674159AA98200F0882B /* UIView+ESAdditions.m */,
+				69A704C3159C494600FD0A69 /* UIViewController+ESAdditions.h */,
+				69A704C4159C494600FD0A69 /* UIViewController+ESAdditions.m */,
+				69A704BB159C348F00FD0A69 /* ESGridView.h */,
+				69A704BC159C348F00FD0A69 /* ESGridView.m */,
 				693E7671159AA98100F0882B /* ESStatusBarNotification.h */,
 				693E7672159AA98100F0882B /* ESStatusBarNotification.m */,
 				6952713E1599BF6E00091769 /* UIViewController+ShowAsDialog.h */,
@@ -420,6 +438,7 @@
 				691453D0159A9A17007DA632 /* alert-view-ok-button@2x.png in Resources */,
 				693E767D159ADEB500F0882B /* ESComposeViewController.xib in Resources */,
 				69A704B5159BF63100FD0A69 /* PopupViewController.xib in Resources */,
+				69A704C2159C41F500FD0A69 /* GridViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,6 +494,9 @@
 				69A704AA159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m in Sources */,
 				69A704B4159BF63100FD0A69 /* PopupViewController.m in Sources */,
 				69A704B8159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m in Sources */,
+				69A704BD159C349000FD0A69 /* ESGridView.m in Sources */,
+				69A704C1159C41F500FD0A69 /* GridViewController.m in Sources */,
+				69A704C5159C494700FD0A69 /* UIViewController+ESAdditions.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

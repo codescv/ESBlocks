@@ -9,8 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface DemoViewController : UIViewController
-- (IBAction)showUIAlertViewWithBlocks:(id)sender;
-- (IBAction)showUIActionSheetWithBlocks:(id)sender;
-- (IBAction)showCustomDialog:(id)sender;
 
 @end

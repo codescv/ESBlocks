@@ -19,6 +19,13 @@
     }
 }
 
+- (void)removeAllSubViews
+{
+    for (UIView *subview in [self subviews]) {
+        [subview removeFromSuperview];
+    }
+}
+
 #pragma mark - first responder
 - (BOOL)findAndResignFirstResponder
 {

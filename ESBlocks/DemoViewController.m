@@ -29,10 +29,17 @@
 #import "MobileCoreServices/UTCoreTypes.h"
 #import "MobileCoreServices/UTType.h"
 
+#import "GridViewController.h"
+
 @interface DemoViewController ()
 
 @property (strong, nonatomic) ESComposeViewController *composeViewController;
 @property (strong, nonatomic) PopupViewController *popUpViewController;
+
+- (IBAction)showUIAlertViewWithBlocks:(id)sender;
+- (IBAction)showUIActionSheetWithBlocks:(id)sender;
+- (IBAction)showCustomDialog:(id)sender;
+- (IBAction)showGridViewController:(id)sender;
 
 @end
 
@@ -194,6 +201,13 @@
 {
     DialogViewController *dvc = [[DialogViewController alloc] init];
     [dvc showAsDialog];
+}
+
+- (IBAction)showGridViewController:(id)sender
+{
+    GridViewController *gvc = [[GridViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:gvc];
+    [self.navigationController presentModalViewController:nav animated:YES];
 }
 
 @end

@@ -10,8 +10,9 @@
 
 @interface UIView (ESAdditions)
 
-/* prints view hierarchy, useful when debugging */
+/* view hierarchy */
 - (void)printChildrenHierarchy;
+- (void)removeAllSubViews;
 
 /* first responder */
 - (BOOL)findAndResignFirstResponder;
