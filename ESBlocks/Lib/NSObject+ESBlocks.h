@@ -12,5 +12,7 @@
 @interface NSObject (ESBlocks)
 
 - (void)performBlock:(VoidBlock)block afterDelay:(NSTimeInterval)delay;
+- (void)registerNotification:(NSString *)name usingBlock:(NotificationCallbackBlock)block;
+- (void)unregisterNotification:(NSString *)name;
 
 @end

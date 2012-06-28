@@ -13,6 +13,10 @@
 /* prints view hierarchy, useful when debugging */
 - (void)printChildrenHierarchy;
 
+/* first responder */
+- (BOOL)findAndResignFirstResponder;
+- (UIView *)findFirstResonder;
+
 /* change view position without changing size */
 @property (nonatomic) CGPoint origin;
 @property (nonatomic) CGFloat left;

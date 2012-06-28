@@ -19,6 +19,38 @@
     }
 }
 
+#pragma mark - first responder
+- (BOOL)findAndResignFirstResponder
+{
+    if (self.isFirstResponder) {
+        [self resignFirstResponder];
+        return YES;     
+    }
+    for (UIView *subView in self.subviews) {
+        if ([subView findAndResignFirstResponder])
+            return YES;
+    }
+    return NO;
+}
+
+- (UIView *)findFirstResonder
+{
+    if (self.isFirstResponder) {        
+        return self;     
+    }
+	
+    for (UIView *subView in self.subviews) {
+        UIView *firstResponder = [subView findFirstResonder];
+		
+        if (firstResponder != nil) {
+			return firstResponder;
+        }
+    }
+	
+    return nil;
+}
+
+
 #pragma mark - size and position
 - (CGFloat)left
 {

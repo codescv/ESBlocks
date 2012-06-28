@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface DialogViewController : UIViewController
-@property (retain, nonatomic) IBOutlet UIImageView *backgroundImageView;
+
+@property (strong, nonatomic) IBOutlet UIImageView *backgroundImageView;
 - (IBAction)cancelClicked:(id)sender;
 - (IBAction)okClicked:(id)sender;
 

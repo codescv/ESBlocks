@@ -60,12 +60,15 @@
         NSString *number = (__bridge_transfer NSString *)ABMultiValueCopyValueAtIndex(phones, i);
         CFStringRef locLabel = ABMultiValueCopyLabelAtIndex(phones, i);
         NSString *phoneLabel =(__bridge_transfer NSString *) ABAddressBookCopyLocalizedLabel(locLabel);
+        CFRelease(locLabel);
         ESPhoneNumber *phoneNumber = [[ESPhoneNumber alloc] init];
         phoneNumber.label = phoneLabel;
         phoneNumber.number = number;
         phoneNumber.identifier = identifier;
         [result addObject:phoneNumber];
     }
+    CFRelease(phones);
+    CFRelease(addressbook);
     return result;
 }
 
@@ -119,6 +122,7 @@
     } else {
         // Update person
         if (self.contact.internalId == kABRecordInvalidID) {
+            CFRelease(addressbook);
             return;
         }
         person = ABAddressBookGetPersonWithRecordID(addressbook, self.contact.internalId);
@@ -146,8 +150,10 @@
                 multi = ABMultiValueCreateMutable(ABPersonGetTypeOfProperty(p)); 
             } else {
                 multi = ABMultiValueCreateMutableCopy(m);
+                CFRelease(m);
             }
             CFIndex index = ABMultiValueGetIndexForIdentifier(multi, identifier);
+            CFRelease(multi);
             if (index == kCFNotFound) {
                 return;
             }
@@ -170,9 +176,11 @@
                 multi = ABMultiValueCreateMutable(ABPersonGetTypeOfProperty(p)); 
             } else {
                 multi = ABMultiValueCreateMutableCopy(m);
+                CFRelease(m);
             }
             ABMultiValueAddValueAndLabel(multi, (__bridge CFTypeRef)value, (__bridge CFStringRef)label, NULL);
             ABRecordSetValue(person, p, multi, NULL);
+            CFRelease(multi);
         }];
         
         [self.deleteMultiProps enumerateKeysAndObjectsUsingBlock:^(NSNumber *prop, id val, BOOL *stop) {
@@ -183,12 +191,15 @@
                 return; // return from block
             }
             ABMultiValueRef multi = ABMultiValueCreateMutableCopy(m);
+            CFRelease(m);
             CFIndex index = ABMultiValueGetIndexForIdentifier(multi, identifier);
             if (index == kCFNotFound) {
+                CFRelease(multi);
                 return;
             }
             ABMultiValueRemoveValueAndLabelAtIndex(multi, index);
             ABRecordSetValue(person, p, multi, NULL);
+            CFRelease(multi);
         }];
     }
     

@@ -23,4 +23,20 @@
     }
 }
 
+- (void)registerNotification:(NSString *)name usingBlock:(NotificationCallbackBlock)block
+{
+    __block __weak id obj;
+    obj = [[NSNotificationCenter defaultCenter] addObserverForName:name
+                                                            object:nil
+                                                             queue:nil
+                                                        usingBlock:block];
+}
+
+- (void)unregisterNotification:(NSString *)name
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self
+                                                    name:name
+                                                  object:nil];
+}
+
 @end

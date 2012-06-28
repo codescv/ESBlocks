@@ -26,6 +26,9 @@
 		693E7675159AA98200F0882B /* ESLog.m in Sources */ = {isa = PBXBuildFile; fileRef = 693E7670159AA98000F0882B /* ESLog.m */; };
 		693E7676159AA98200F0882B /* ESStatusBarNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = 693E7672159AA98100F0882B /* ESStatusBarNotification.m */; };
 		693E7677159AA98200F0882B /* UIView+ESAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 693E7674159AA98200F0882B /* UIView+ESAdditions.m */; };
+		693E767C159ADEB500F0882B /* ESComposeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 693E767A159ADEB500F0882B /* ESComposeViewController.m */; };
+		693E767D159ADEB500F0882B /* ESComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 693E767B159ADEB500F0882B /* ESComposeViewController.xib */; };
+		693E7680159AE01800F0882B /* ESKeyboardManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 693E767F159AE01700F0882B /* ESKeyboardManager.m */; };
 		695271401599BF6E00091769 /* UIViewController+ShowAsDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */; };
 		695271451599BF7F00091769 /* DialogViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 695271431599BF7F00091769 /* DialogViewController.m */; };
 		695271461599BF7F00091769 /* DialogViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 695271441599BF7F00091769 /* DialogViewController.xib */; };
@@ -85,6 +88,11 @@
 		693E7672159AA98100F0882B /* ESStatusBarNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESStatusBarNotification.m; sourceTree = "<group>"; };
 		693E7673159AA98100F0882B /* UIView+ESAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ESAdditions.h"; sourceTree = "<group>"; };
 		693E7674159AA98200F0882B /* UIView+ESAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ESAdditions.m"; sourceTree = "<group>"; };
+		693E7679159ADEB500F0882B /* ESComposeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESComposeViewController.h; sourceTree = "<group>"; };
+		693E767A159ADEB500F0882B /* ESComposeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESComposeViewController.m; sourceTree = "<group>"; };
+		693E767B159ADEB500F0882B /* ESComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESComposeViewController.xib; sourceTree = "<group>"; };
+		693E767E159AE01700F0882B /* ESKeyboardManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESKeyboardManager.h; sourceTree = "<group>"; };
+		693E767F159AE01700F0882B /* ESKeyboardManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESKeyboardManager.m; sourceTree = "<group>"; };
 		6952713E1599BF6E00091769 /* UIViewController+ShowAsDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowAsDialog.h"; sourceTree = "<group>"; };
 		6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowAsDialog.m"; sourceTree = "<group>"; };
 		695271421599BF7F00091769 /* DialogViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogViewController.h; sourceTree = "<group>"; };
@@ -230,6 +238,9 @@
 				693E7674159AA98200F0882B /* UIView+ESAdditions.m */,
 				693E7671159AA98100F0882B /* ESStatusBarNotification.h */,
 				693E7672159AA98100F0882B /* ESStatusBarNotification.m */,
+				693E7679159ADEB500F0882B /* ESComposeViewController.h */,
+				693E767A159ADEB500F0882B /* ESComposeViewController.m */,
+				693E767B159ADEB500F0882B /* ESComposeViewController.xib */,
 			);
 			name = ESUI;
 			sourceTree = "<group>";
@@ -254,12 +265,12 @@
 				6952712215998CC200091769 /* ESUI */,
 				698937C015984AC50095CF9A /* ESAddressBook */,
 				698937BF159844A40095CF9A /* ESBlocks */,
-				698937BE1598449D0095CF9A /* ESAdditions */,
+				698937BE1598449D0095CF9A /* ESCoreAdditions */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
 		};
-		698937BE1598449D0095CF9A /* ESAdditions */ = {
+		698937BE1598449D0095CF9A /* ESCoreAdditions */ = {
 			isa = PBXGroup;
 			children = (
 				698937B1159844950095CF9A /* NSObject+ESPropertyGeneration.h */,
@@ -267,7 +278,7 @@
 				698937B3159844950095CF9A /* NSString+ESAdditions.h */,
 				698937B4159844950095CF9A /* NSString+ESAdditions.m */,
 			);
-			name = ESAdditions;
+			name = ESCoreAdditions;
 			sourceTree = "<group>";
 		};
 		698937BF159844A40095CF9A /* ESBlocks */ = {
@@ -299,6 +310,8 @@
 				698937C515984C640095CF9A /* SynthesizeSingleton.h */,
 				693E766F159AA98000F0882B /* ESLog.h */,
 				693E7670159AA98000F0882B /* ESLog.m */,
+				693E767E159AE01700F0882B /* ESKeyboardManager.h */,
+				693E767F159AE01700F0882B /* ESKeyboardManager.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -383,6 +396,7 @@
 				691453CE159A9A17007DA632 /* alert-view-cancel-button@2x.png in Resources */,
 				691453CF159A9A17007DA632 /* alert-view-ok-button.png in Resources */,
 				691453D0159A9A17007DA632 /* alert-view-ok-button@2x.png in Resources */,
+				693E767D159ADEB500F0882B /* ESComposeViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -433,6 +447,8 @@
 				693E7675159AA98200F0882B /* ESLog.m in Sources */,
 				693E7676159AA98200F0882B /* ESStatusBarNotification.m in Sources */,
 				693E7677159AA98200F0882B /* UIView+ESAdditions.m in Sources */,
+				693E767C159ADEB500F0882B /* ESComposeViewController.m in Sources */,
+				693E7680159AE01800F0882B /* ESKeyboardManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +543,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ESBlocks/ESBlocks-Prefix.pch";
 				INFOPLIST_FILE = "ESBlocks/ESBlocks-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -538,6 +555,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "ESBlocks/ESBlocks-Prefix.pch";
 				INFOPLIST_FILE = "ESBlocks/ESBlocks-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

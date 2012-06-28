@@ -14,11 +14,22 @@
 #import "DialogViewController.h"
 #import "UIViewController+ShowAsDialog.h"
 
+#import "UIView+ESAdditions.h"
+#import "ESComposeViewController.h"
+#import "NSObject+ESBlocks.h"
+
+#import "ESKeyboardManager.h"
+#import "ESLog.h"
+
 @interface DemoViewController ()
+
+@property (nonatomic, strong) ESComposeViewController *composeViewController;
 
 @end
 
 @implementation DemoViewController
+
+@synthesize composeViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -33,7 +44,37 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.composeViewController = [[ESComposeViewController alloc] init];
+    self.composeViewController.maxNumberOfLines = 6;
+    self.composeViewController.minNumberOfLines = 1;
+    self.composeViewController.view.bottom = self.view.height;
+    self.composeViewController.onResize = ^{
+        CGFloat keyboardTop = [[ESKeyboardManager sharedManager] keyboardTopInView:self.view];
+        self.composeViewController.view.bottom = keyboardTop;
+    };
+    self.composeViewController.text = @"abcdef\ndkdj\nall\n";
+    [self.view addSubview:self.composeViewController.view];
 
+    [self registerNotification:UIKeyboardWillShowNotification
+                    usingBlock:
+     ^(NSNotification *notif) {
+         CGFloat keyboardTop = [[ESKeyboardManager sharedManager] keyboardTopInView:self.view forNotification:notif];
+         [[ESKeyboardManager sharedManager] animateWithKeyboardNotification:notif
+                                                                 animations:^{
+                                                                     self.composeViewController.view.bottom = keyboardTop;
+                                                                 }];
+         
+     }];
+    
+    [self registerNotification:UIKeyboardWillHideNotification
+                    usingBlock:
+     ^(NSNotification *notif) {
+         [[ESKeyboardManager sharedManager] animateWithKeyboardNotification:notif
+                                                                 animations:^{
+                                                                     self.composeViewController.view.bottom = self.view.height;
+                                                                 }];
+         
+     }];
 }
 
 - (void)viewDidUnload
@@ -41,11 +82,24 @@
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
+    self.composeViewController = nil;
+    [self unregisterNotification:UIKeyboardWillShowNotification];
+    [self unregisterNotification:UIKeyboardWillHideNotification];
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+    if (toInterfaceOrientation == UIInterfaceOrientationPortrait ||
+        toInterfaceOrientation == UIInterfaceOrientationPortraitUpsideDown) {
+        self.composeViewController.maxNumberOfLines = 6;
+    } else {
+        self.composeViewController.maxNumberOfLines = 2;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
