@@ -50,6 +50,8 @@
 		69A704AA159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704A9159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m */; };
 		69A704B4159BF63100FD0A69 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704B2159BF62F00FD0A69 /* PopupViewController.m */; };
 		69A704B5159BF63100FD0A69 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A704B3159BF63000FD0A69 /* PopupViewController.xib */; };
+		69A704B8159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704B7159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m */; };
+		69A704BA159C0F5900FD0A69 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A704B9159C0F5900FD0A69 /* MobileCoreServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +129,9 @@
 		69A704B1159BF62E00FD0A69 /* PopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
 		69A704B2159BF62F00FD0A69 /* PopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
 		69A704B3159BF63000FD0A69 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
+		69A704B6159C09BE00FD0A69 /* UIViewController+ShowImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowImagePicker.h"; sourceTree = "<group>"; };
+		69A704B7159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowImagePicker.m"; sourceTree = "<group>"; };
+		69A704B9159C0F5900FD0A69 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,9 +141,10 @@
 			files = (
 				695B9C3D159945A3001C64C7 /* AddressBook.framework in Frameworks */,
 				695B9C3E159945A3001C64C7 /* AddressBookUI.framework in Frameworks */,
-				693542B11592F87A00CDE389 /* UIKit.framework in Frameworks */,
-				693542B31592F87A00CDE389 /* Foundation.framework in Frameworks */,
 				693542B51592F87A00CDE389 /* CoreGraphics.framework in Frameworks */,
+				693542B31592F87A00CDE389 /* Foundation.framework in Frameworks */,
+				69A704BA159C0F5900FD0A69 /* MobileCoreServices.framework in Frameworks */,
+				693542B11592F87A00CDE389 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,6 +183,7 @@
 		693542AF1592F87A00CDE389 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69A704B9159C0F5900FD0A69 /* MobileCoreServices.framework */,
 				695B9C3B159945A3001C64C7 /* AddressBook.framework */,
 				695B9C3C159945A3001C64C7 /* AddressBookUI.framework */,
 				693542B01592F87A00CDE389 /* UIKit.framework */,
@@ -243,14 +250,16 @@
 		6952712215998CC200091769 /* ESUI */ = {
 			isa = PBXGroup;
 			children = (
-				6952713E1599BF6E00091769 /* UIViewController+ShowAsDialog.h */,
-				6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */,
-				69A704A8159BF57A00FD0A69 /* UIViewController+ShowAsPopup.h */,
-				69A704A9159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m */,
 				693E7673159AA98100F0882B /* UIView+ESAdditions.h */,
 				693E7674159AA98200F0882B /* UIView+ESAdditions.m */,
 				693E7671159AA98100F0882B /* ESStatusBarNotification.h */,
 				693E7672159AA98100F0882B /* ESStatusBarNotification.m */,
+				6952713E1599BF6E00091769 /* UIViewController+ShowAsDialog.h */,
+				6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */,
+				69A704A8159BF57A00FD0A69 /* UIViewController+ShowAsPopup.h */,
+				69A704A9159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m */,
+				69A704B6159C09BE00FD0A69 /* UIViewController+ShowImagePicker.h */,
+				69A704B7159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m */,
 				693E7679159ADEB500F0882B /* ESComposeViewController.h */,
 				693E767A159ADEB500F0882B /* ESComposeViewController.m */,
 				693E767B159ADEB500F0882B /* ESComposeViewController.xib */,
@@ -465,6 +474,7 @@
 				693E7680159AE01800F0882B /* ESKeyboardManager.m in Sources */,
 				69A704AA159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m in Sources */,
 				69A704B4159BF63100FD0A69 /* PopupViewController.m in Sources */,
+				69A704B8159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

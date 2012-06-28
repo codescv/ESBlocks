@@ -10,9 +10,15 @@
 
 @interface PopupViewController ()
 
+- (IBAction)photoClicked:(id)sender;
+- (IBAction)videoClicked:(id)sender;
+
 @end
 
 @implementation PopupViewController
+
+@synthesize onPhoto = _onPhoto;
+@synthesize onVideo = _onVideo;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -39,6 +45,20 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (IBAction)photoClicked:(id)sender
+{
+    if (self.onPhoto) {
+        self.onPhoto();
+    }
+}
+
+- (IBAction)videoClicked:(id)sender
+{
+    if (self.onVideo) {
+        self.onVideo();
+    }
 }
 
 @end
