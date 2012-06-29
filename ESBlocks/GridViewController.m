@@ -8,6 +8,7 @@
 
 #import "GridViewController.h"
 #import "UIViewController+ESAdditions.h"
+#import "UIBarButtonItem+ESBlocks.h"
 
 @interface GridViewController ()
 
@@ -37,10 +38,11 @@
     self.gridView.delegate = self;
     [self.view addSubview:self.gridView];
     
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Dismiss"
-                                                                             style:UIBarButtonItemStyleBordered
-                                                                            target:self
-                                                                            action:@selector(dismiss)];
+    self.navigationItem.leftBarButtonItem = [UIBarButtonItem barButtonItemWithTitle:@"Dismiss"
+                                                                              style:UIBarButtonItemStyleBordered
+                                                                              block:^{
+                                                                                  [self dismissAsModalViewControllerAnimated:YES];
+                                                                              }];
 }
 
 - (void)viewDidUnload
@@ -54,11 +56,6 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return YES;
-}
-
-- (void)dismiss
-{
-    [self dismissAsModalViewControllerAnimated:YES];
 }
 
 #pragma mark - grid view delegate

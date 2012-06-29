@@ -34,7 +34,7 @@
 
 @implementation UIAlertView (ESBlocks)
 
-static ESBlocksAlertViewDelegate *_es_block_delegate = NULL;
+static ESBlocksAlertViewDelegate *__delegate = NULL;
 
 @dynamic dismissBlock;
 @dynamic cancelBlock;
@@ -42,7 +42,7 @@ static ESBlocksAlertViewDelegate *_es_block_delegate = NULL;
 + (void)load
 {
     @autoreleasepool {
-        _es_block_delegate = [[ESBlocksAlertViewDelegate alloc] init];
+        __delegate = [[ESBlocksAlertViewDelegate alloc] init];
         [UIAlertView defineProperty:@"dismissBlock" type:ES_PROP_COPY];
         [UIAlertView defineProperty:@"cancelBlock" type:ES_PROP_COPY];
     }
@@ -58,7 +58,7 @@ static ESBlocksAlertViewDelegate *_es_block_delegate = NULL;
 {
     self = [self initWithTitle:title
                        message:message
-                      delegate:_es_block_delegate
+                      delegate:__delegate
              cancelButtonTitle:cancelButtonTitle
              otherButtonTitles:nil];
     if (self) {

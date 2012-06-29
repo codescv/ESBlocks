@@ -30,6 +30,8 @@
 #import "MobileCoreServices/UTType.h"
 
 #import "GridViewController.h"
+#import "ESNavigationController.h"
+#import "NavContentViewController.h"
 
 @interface DemoViewController ()
 
@@ -40,6 +42,7 @@
 - (IBAction)showUIActionSheetWithBlocks:(id)sender;
 - (IBAction)showCustomDialog:(id)sender;
 - (IBAction)showGridViewController:(id)sender;
+- (IBAction)showCustomNavController:(id)sender;
 
 @end
 
@@ -207,6 +210,14 @@
 {
     GridViewController *gvc = [[GridViewController alloc] init];
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:gvc];
+    [self.navigationController presentModalViewController:nav animated:YES];
+}
+
+- (IBAction)showCustomNavController:(id)sender
+{
+    NavContentViewController *fvc = [[NavContentViewController alloc] init];
+    fvc.content = @"first";
+    ESNavigationController *nav = [[ESNavigationController alloc] initWithRootViewController:fvc];
     [self.navigationController presentModalViewController:nav animated:YES];
 }
 

@@ -33,7 +33,7 @@
 
 @implementation UIActionSheet (ESBlocks)
 
-static ESBlocksActionSheetDelegate *_es_block_delegate = NULL;
+static ESBlocksActionSheetDelegate *__delegate = NULL;
 
 @dynamic dismissBlock;
 @dynamic cancelBlock;
@@ -41,7 +41,7 @@ static ESBlocksActionSheetDelegate *_es_block_delegate = NULL;
 + (void)load
 {
     @autoreleasepool {
-        _es_block_delegate = [[ESBlocksActionSheetDelegate alloc] init];
+        __delegate = [[ESBlocksActionSheetDelegate alloc] init];
         [UIActionSheet defineProperty:@"dismissBlock" type:ES_PROP_COPY];
         [UIActionSheet defineProperty:@"cancelBlock" type:ES_PROP_COPY];
     }
@@ -60,7 +60,7 @@ destructiveButtonTitle:(NSString *)destructiveButtonTitle
           onDismiss:(ActionSheetDismissBlock)dismissBlock
 {
     self = [self initWithTitle:title 
-                      delegate:_es_block_delegate
+                      delegate:__delegate
              cancelButtonTitle:nil
         destructiveButtonTitle:nil
              otherButtonTitles:nil];

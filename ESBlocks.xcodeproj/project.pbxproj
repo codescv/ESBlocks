@@ -11,6 +11,8 @@
 		691453CE159A9A17007DA632 /* alert-view-cancel-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 691453CA159A9A17007DA632 /* alert-view-cancel-button@2x.png */; };
 		691453CF159A9A17007DA632 /* alert-view-ok-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 691453CB159A9A17007DA632 /* alert-view-ok-button.png */; };
 		691453D0159A9A17007DA632 /* alert-view-ok-button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 691453CC159A9A17007DA632 /* alert-view-ok-button@2x.png */; };
+		692BAA6E159C5D4A007E8F36 /* NavContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 692BAA6C159C5D4A007E8F36 /* NavContentViewController.m */; };
+		692BAA6F159C5D4A007E8F36 /* NavContentViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 692BAA6D159C5D4A007E8F36 /* NavContentViewController.xib */; };
 		693542B11592F87A00CDE389 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693542B01592F87A00CDE389 /* UIKit.framework */; };
 		693542B31592F87A00CDE389 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693542B21592F87A00CDE389 /* Foundation.framework */; };
 		693542B51592F87A00CDE389 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 693542B41592F87A00CDE389 /* CoreGraphics.framework */; };
@@ -56,6 +58,9 @@
 		69A704C1159C41F500FD0A69 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704BF159C41F300FD0A69 /* GridViewController.m */; };
 		69A704C2159C41F500FD0A69 /* GridViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A704C0159C41F400FD0A69 /* GridViewController.xib */; };
 		69A704C5159C494700FD0A69 /* UIViewController+ESAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704C4159C494600FD0A69 /* UIViewController+ESAdditions.m */; };
+		69A704C8159C4F6F00FD0A69 /* UIBarButtonItem+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704C7159C4F6F00FD0A69 /* UIBarButtonItem+ESBlocks.m */; };
+		69A704CB159C53B300FD0A69 /* ESNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704CA159C53B200FD0A69 /* ESNavigationController.m */; };
+		69A704CE159C53D400FD0A69 /* ESTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704CD159C53D300FD0A69 /* ESTabBarController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +78,9 @@
 		691453CA159A9A17007DA632 /* alert-view-cancel-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-view-cancel-button@2x.png"; sourceTree = "<group>"; };
 		691453CB159A9A17007DA632 /* alert-view-ok-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-view-ok-button.png"; sourceTree = "<group>"; };
 		691453CC159A9A17007DA632 /* alert-view-ok-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-view-ok-button@2x.png"; sourceTree = "<group>"; };
+		692BAA6B159C5D4A007E8F36 /* NavContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = NavContentViewController.h; sourceTree = "<group>"; };
+		692BAA6C159C5D4A007E8F36 /* NavContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavContentViewController.m; sourceTree = "<group>"; };
+		692BAA6D159C5D4A007E8F36 /* NavContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavContentViewController.xib; sourceTree = "<group>"; };
 		693542AC1592F87A00CDE389 /* ESBlocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESBlocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		693542B01592F87A00CDE389 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		693542B21592F87A00CDE389 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -143,6 +151,12 @@
 		69A704C0159C41F400FD0A69 /* GridViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GridViewController.xib; sourceTree = "<group>"; };
 		69A704C3159C494600FD0A69 /* UIViewController+ESAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ESAdditions.h"; sourceTree = "<group>"; };
 		69A704C4159C494600FD0A69 /* UIViewController+ESAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ESAdditions.m"; sourceTree = "<group>"; };
+		69A704C6159C4F6F00FD0A69 /* UIBarButtonItem+ESBlocks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+ESBlocks.h"; sourceTree = "<group>"; };
+		69A704C7159C4F6F00FD0A69 /* UIBarButtonItem+ESBlocks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+ESBlocks.m"; sourceTree = "<group>"; };
+		69A704C9159C53B100FD0A69 /* ESNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESNavigationController.h; sourceTree = "<group>"; };
+		69A704CA159C53B200FD0A69 /* ESNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESNavigationController.m; sourceTree = "<group>"; };
+		69A704CC159C53D200FD0A69 /* ESTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTabBarController.h; sourceTree = "<group>"; };
+		69A704CD159C53D300FD0A69 /* ESTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESTabBarController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -223,6 +237,9 @@
 				69A704BE159C41F200FD0A69 /* GridViewController.h */,
 				69A704BF159C41F300FD0A69 /* GridViewController.m */,
 				69A704C0159C41F400FD0A69 /* GridViewController.xib */,
+				692BAA6B159C5D4A007E8F36 /* NavContentViewController.h */,
+				692BAA6C159C5D4A007E8F36 /* NavContentViewController.m */,
+				692BAA6D159C5D4A007E8F36 /* NavContentViewController.xib */,
 				693542E315930F8C00CDE389 /* TestObj.h */,
 				693542E415930F8C00CDE389 /* TestObj.m */,
 				695271471599BFF400091769 /* Resources */,
@@ -272,6 +289,10 @@
 				69A704BC159C348F00FD0A69 /* ESGridView.m */,
 				693E7671159AA98100F0882B /* ESStatusBarNotification.h */,
 				693E7672159AA98100F0882B /* ESStatusBarNotification.m */,
+				69A704C9159C53B100FD0A69 /* ESNavigationController.h */,
+				69A704CA159C53B200FD0A69 /* ESNavigationController.m */,
+				69A704CC159C53D200FD0A69 /* ESTabBarController.h */,
+				69A704CD159C53D300FD0A69 /* ESTabBarController.m */,
 				6952713E1599BF6E00091769 /* UIViewController+ShowAsDialog.h */,
 				6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */,
 				69A704A8159BF57A00FD0A69 /* UIViewController+ShowAsPopup.h */,
@@ -331,6 +352,8 @@
 				698937B6159844950095CF9A /* UIActionSheet+ESBlocks.m */,
 				698937B7159844950095CF9A /* UIAlertView+ESBlocks.h */,
 				698937B8159844950095CF9A /* UIAlertView+ESBlocks.m */,
+				69A704C6159C4F6F00FD0A69 /* UIBarButtonItem+ESBlocks.h */,
+				69A704C7159C4F6F00FD0A69 /* UIBarButtonItem+ESBlocks.m */,
 			);
 			name = ESBlocks;
 			sourceTree = "<group>";
@@ -439,6 +462,7 @@
 				693E767D159ADEB500F0882B /* ESComposeViewController.xib in Resources */,
 				69A704B5159BF63100FD0A69 /* PopupViewController.xib in Resources */,
 				69A704C2159C41F500FD0A69 /* GridViewController.xib in Resources */,
+				692BAA6F159C5D4A007E8F36 /* NavContentViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -497,6 +521,10 @@
 				69A704BD159C349000FD0A69 /* ESGridView.m in Sources */,
 				69A704C1159C41F500FD0A69 /* GridViewController.m in Sources */,
 				69A704C5159C494700FD0A69 /* UIViewController+ESAdditions.m in Sources */,
+				69A704C8159C4F6F00FD0A69 /* UIBarButtonItem+ESBlocks.m in Sources */,
+				69A704CB159C53B300FD0A69 /* ESNavigationController.m in Sources */,
+				69A704CE159C53D400FD0A69 /* ESTabBarController.m in Sources */,
+				692BAA6E159C5D4A007E8F36 /* NavContentViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
