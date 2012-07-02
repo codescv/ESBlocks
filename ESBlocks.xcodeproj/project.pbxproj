@@ -61,6 +61,8 @@
 		69A704C8159C4F6F00FD0A69 /* UIBarButtonItem+ESBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704C7159C4F6F00FD0A69 /* UIBarButtonItem+ESBlocks.m */; };
 		69A704CB159C53B300FD0A69 /* ESNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704CA159C53B200FD0A69 /* ESNavigationController.m */; };
 		69A704CE159C53D400FD0A69 /* ESTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704CD159C53D300FD0A69 /* ESTabBarController.m */; };
+		69D0893915A1377300F6F2C8 /* ESViewControllerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 69D0893815A1377300F6F2C8 /* ESViewControllerFactory.m */; };
+		69D0893C15A13EC800F6F2C8 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69D0893B15A13EC800F6F2C8 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,7 +80,7 @@
 		691453CA159A9A17007DA632 /* alert-view-cancel-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-view-cancel-button@2x.png"; sourceTree = "<group>"; };
 		691453CB159A9A17007DA632 /* alert-view-ok-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-view-ok-button.png"; sourceTree = "<group>"; };
 		691453CC159A9A17007DA632 /* alert-view-ok-button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "alert-view-ok-button@2x.png"; sourceTree = "<group>"; };
-		692BAA6B159C5D4A007E8F36 /* NavContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; path = NavContentViewController.h; sourceTree = "<group>"; };
+		692BAA6B159C5D4A007E8F36 /* NavContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavContentViewController.h; sourceTree = "<group>"; };
 		692BAA6C159C5D4A007E8F36 /* NavContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavContentViewController.m; sourceTree = "<group>"; };
 		692BAA6D159C5D4A007E8F36 /* NavContentViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavContentViewController.xib; sourceTree = "<group>"; };
 		693542AC1592F87A00CDE389 /* ESBlocks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESBlocks.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -157,6 +159,9 @@
 		69A704CA159C53B200FD0A69 /* ESNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESNavigationController.m; sourceTree = "<group>"; };
 		69A704CC159C53D200FD0A69 /* ESTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESTabBarController.h; sourceTree = "<group>"; };
 		69A704CD159C53D300FD0A69 /* ESTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESTabBarController.m; sourceTree = "<group>"; };
+		69D0893715A1377300F6F2C8 /* ESViewControllerFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESViewControllerFactory.h; sourceTree = "<group>"; };
+		69D0893815A1377300F6F2C8 /* ESViewControllerFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESViewControllerFactory.m; sourceTree = "<group>"; };
+		69D0893B15A13EC800F6F2C8 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -169,6 +174,7 @@
 				693542B51592F87A00CDE389 /* CoreGraphics.framework in Frameworks */,
 				693542B31592F87A00CDE389 /* Foundation.framework in Frameworks */,
 				69A704BA159C0F5900FD0A69 /* MobileCoreServices.framework in Frameworks */,
+				69D0893C15A13EC800F6F2C8 /* MessageUI.framework in Frameworks */,
 				693542B11592F87A00CDE389 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -208,6 +214,7 @@
 		693542AF1592F87A00CDE389 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				69D0893B15A13EC800F6F2C8 /* MessageUI.framework */,
 				69A704B9159C0F5900FD0A69 /* MobileCoreServices.framework */,
 				695B9C3B159945A3001C64C7 /* AddressBook.framework */,
 				695B9C3C159945A3001C64C7 /* AddressBookUI.framework */,
@@ -299,6 +306,8 @@
 				69A704A9159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m */,
 				69A704B6159C09BE00FD0A69 /* UIViewController+ShowImagePicker.h */,
 				69A704B7159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m */,
+				69D0893715A1377300F6F2C8 /* ESViewControllerFactory.h */,
+				69D0893815A1377300F6F2C8 /* ESViewControllerFactory.m */,
 				693E7679159ADEB500F0882B /* ESComposeViewController.h */,
 				693E767A159ADEB500F0882B /* ESComposeViewController.m */,
 				693E767B159ADEB500F0882B /* ESComposeViewController.xib */,
@@ -525,6 +534,7 @@
 				69A704CB159C53B300FD0A69 /* ESNavigationController.m in Sources */,
 				69A704CE159C53D400FD0A69 /* ESTabBarController.m in Sources */,
 				692BAA6E159C5D4A007E8F36 /* NavContentViewController.m in Sources */,
+				69D0893915A1377300F6F2C8 /* ESViewControllerFactory.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

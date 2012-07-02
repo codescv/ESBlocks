@@ -33,6 +33,8 @@
 #import "ESNavigationController.h"
 #import "NavContentViewController.h"
 
+#import "ESViewControllerFactory.h"
+
 @interface DemoViewController ()
 
 @property (strong, nonatomic) ESComposeViewController *composeViewController;
@@ -43,6 +45,8 @@
 - (IBAction)showCustomDialog:(id)sender;
 - (IBAction)showGridViewController:(id)sender;
 - (IBAction)showCustomNavController:(id)sender;
+- (IBAction)showMessageViewController:(id)sender;
+- (IBAction)showMailViewController:(id)sender;
 
 @end
 
@@ -219,6 +223,25 @@
     fvc.content = @"first";
     ESNavigationController *nav = [[ESNavigationController alloc] initWithRootViewController:fvc];
     [self.navigationController presentModalViewController:nav animated:YES];
+}
+
+- (IBAction)showMessageViewController:(id)sender 
+{
+    [[ESViewControllerFactory sharedFactory] showMessageViewControllerWithRecipients:[NSArray arrayWithObject:@"123"]
+                                                                                body:@"test"
+                                                                              onSend:^(MFMessageComposeViewController *controller, MessageComposeResult result) {
+                                                                                  NSLog(@"result: %d", result);
+                                                                              }];
+}
+
+- (IBAction)showMailViewController:(id)sender
+{
+    [[ESViewControllerFactory sharedFactory] showMailViewControllerWithRecipients:[NSArray arrayWithObject:@"123@abc.com"] 
+                                                                                                     title:@"Title"
+                                                                                                      body:@"body"
+                                                                                                    onSend:^(MFMailComposeViewController *controller, MFMailComposeResult result) {
+                                                                                                        NSLog(@"result: %d", result);
+                                                                                                    }];
 }
 
 @end
