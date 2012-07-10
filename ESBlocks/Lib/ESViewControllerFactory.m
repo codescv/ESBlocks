@@ -53,11 +53,44 @@
 
 @end
 
+@interface ESImagePickerControllerDelegate : NSObject <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+
+@property (copy, nonatomic) PickMediaDelegateBlock onPick;
+@property (copy, nonatomic) CancelPickMediaDelegteBlock onCancel;
+
+@end
+
+@implementation ESImagePickerControllerDelegate
+
+@synthesize onPick = _onPick;
+@synthesize onCancel = _onCancel;
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    if (self.onCancel) {
+        self.onCancel();
+    }
+    [picker dismissModalViewControllerAnimated:YES];
+    self.onCancel = nil;
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
+{
+    if (self.onPick) {
+        self.onPick(info);
+    }
+    [picker dismissModalViewControllerAnimated:YES];
+    self.onPick = nil;
+}
+
+@end
 
 @interface ESViewControllerFactory ()
 
 @property (strong, nonatomic) ESMessageViewControllerDelegate *messageVCDelegate;
 @property (strong, nonatomic) ESMailViewControllerDelegate *mailVCDelegate;
+@property (strong, nonatomic) UIImagePickerController *imagePicker;
+@property (strong, nonatomic) ESImagePickerControllerDelegate *pickerDelegate;
 
 @property (readonly, nonatomic) UIViewController *presentingViewController;
 
@@ -67,6 +100,8 @@
 
 @synthesize messageVCDelegate = _messageVCDelegate;
 @synthesize mailVCDelegate = _mailVCDelegate;
+@synthesize imagePicker = _imagePicker;
+@synthesize pickerDelegate = _pickerDelegate;
 
 SYNTHESIZE_SINGLETON_FOR_CLASS(ESViewControllerFactory);
 
@@ -81,6 +116,8 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ESViewControllerFactory);
     if (self) {
         self.messageVCDelegate = [[ESMessageViewControllerDelegate alloc] init];
         self.mailVCDelegate = [[ESMailViewControllerDelegate alloc] init];
+        self.imagePicker = [[UIImagePickerController alloc] init];
+        self.pickerDelegate = [[ESImagePickerControllerDelegate alloc] init];
     }
     return self;
 }
@@ -125,5 +162,32 @@ SYNTHESIZE_SINGLETON_FOR_CLASS(ESViewControllerFactory);
         return NO;
     }
 }
+
+- (void)showImagePickerController:(UIImagePickerController *)controller
+                           onPick:(PickMediaDelegateBlock)onPick
+                         onCancel:(CancelPickMediaDelegteBlock)onCancel
+{
+    self.imagePicker = controller;
+    self.pickerDelegate.onPick = onPick;
+    self.pickerDelegate.onCancel = onCancel;
+    self.imagePicker.delegate = self.pickerDelegate;
+    [[self presentingViewController] presentModalViewController:self.imagePicker animated:YES];
+}
+
+- (void)showImagePickerWithSourceType:(UIImagePickerControllerSourceType)sourceType
+                            mediaType:(CFStringRef)mediaType
+                        allowsEditing:(BOOL)allowsEditing
+                               onPick:(PickMediaDelegateBlock)onPick
+                             onCancel:(CancelPickMediaDelegteBlock)onCancel
+{
+    
+    self.imagePicker.sourceType = sourceType;
+    self.imagePicker.mediaTypes = [NSArray arrayWithObjects:(__bridge NSString *)mediaType, nil];
+    self.imagePicker.allowsEditing = allowsEditing;
+    [self showImagePickerController:self.imagePicker
+                                                        onPick:onPick
+                                                      onCancel:onCancel];
+}
+
 
 @end

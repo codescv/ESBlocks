@@ -24,8 +24,6 @@
 #import "PopupViewController.h"
 #import "UIViewController+ShowAsPopup.h"
 
-#import "UIViewController+ShowImagePicker.h"
-
 #import "MobileCoreServices/UTCoreTypes.h"
 #import "MobileCoreServices/UTType.h"
 
@@ -69,18 +67,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     self.popUpViewController = [[PopupViewController alloc] init];
-    __block __weak UIViewController *this = self;
     self.popUpViewController.onPhoto = ^{
         [self.popUpViewController dismissPopup];
-        [this showImagePickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary
+        [[ESViewControllerFactory sharedFactory] showImagePickerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary
                                   mediaType:kUTTypeImage
                               allowsEditing:YES
                                      onPick:^(NSDictionary *info) {
-                                         NSLog(@"pick");
-                                         [this dismissModalViewControllerAnimated:YES];
+                                         NSLog(@"pick: %@", info);
                                      } onCancel:^{
                                          NSLog(@"cancel");
-                                         [this dismissModalViewControllerAnimated:YES];
                                      }];
     };
     

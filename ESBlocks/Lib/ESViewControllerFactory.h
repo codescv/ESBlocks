@@ -13,6 +13,8 @@
 
 typedef void (^MessageComposeResultBlock)(MFMessageComposeViewController *controller, MessageComposeResult result);
 typedef void (^MailComposeResultBlock)(MFMailComposeViewController *controller, MFMailComposeResult result);
+typedef void (^PickMediaDelegateBlock)(NSDictionary *info);
+typedef void (^CancelPickMediaDelegteBlock)();
 
 @interface ESViewControllerFactory : NSObject
 
@@ -26,5 +28,17 @@ typedef void (^MailComposeResultBlock)(MFMailComposeViewController *controller, 
                                        title:(NSString *)title
                                         body:(NSString *)body
                                       onSend:(MailComposeResultBlock)onSend;
+
+// if you want to customize prefs for UIImagePickerController yourself
+- (void)showImagePickerController:(UIImagePickerController *)controller
+                           onPick:(PickMediaDelegateBlock)onPick
+                         onCancel:(CancelPickMediaDelegteBlock)onCancel;
+
+// a convenient way
+- (void)showImagePickerWithSourceType:(UIImagePickerControllerSourceType)sourceType
+                            mediaType:(CFStringRef)mediaType
+                        allowsEditing:(BOOL)allowsEditing
+                               onPick:(PickMediaDelegateBlock)onPick
+                             onCancel:(CancelPickMediaDelegteBlock)onCancel;
 
 @end

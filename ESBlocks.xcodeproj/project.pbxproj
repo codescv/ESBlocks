@@ -52,7 +52,6 @@
 		69A704AA159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704A9159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m */; };
 		69A704B4159BF63100FD0A69 /* PopupViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704B2159BF62F00FD0A69 /* PopupViewController.m */; };
 		69A704B5159BF63100FD0A69 /* PopupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69A704B3159BF63000FD0A69 /* PopupViewController.xib */; };
-		69A704B8159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704B7159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m */; };
 		69A704BA159C0F5900FD0A69 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A704B9159C0F5900FD0A69 /* MobileCoreServices.framework */; };
 		69A704BD159C349000FD0A69 /* ESGridView.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704BC159C348F00FD0A69 /* ESGridView.m */; };
 		69A704C1159C41F500FD0A69 /* GridViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69A704BF159C41F300FD0A69 /* GridViewController.m */; };
@@ -143,8 +142,6 @@
 		69A704B1159BF62E00FD0A69 /* PopupViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopupViewController.h; sourceTree = "<group>"; };
 		69A704B2159BF62F00FD0A69 /* PopupViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopupViewController.m; sourceTree = "<group>"; };
 		69A704B3159BF63000FD0A69 /* PopupViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopupViewController.xib; sourceTree = "<group>"; };
-		69A704B6159C09BE00FD0A69 /* UIViewController+ShowImagePicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+ShowImagePicker.h"; sourceTree = "<group>"; };
-		69A704B7159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+ShowImagePicker.m"; sourceTree = "<group>"; };
 		69A704B9159C0F5900FD0A69 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		69A704BB159C348F00FD0A69 /* ESGridView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESGridView.h; sourceTree = "<group>"; };
 		69A704BC159C348F00FD0A69 /* ESGridView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESGridView.m; sourceTree = "<group>"; };
@@ -304,8 +301,6 @@
 				6952713F1599BF6E00091769 /* UIViewController+ShowAsDialog.m */,
 				69A704A8159BF57A00FD0A69 /* UIViewController+ShowAsPopup.h */,
 				69A704A9159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m */,
-				69A704B6159C09BE00FD0A69 /* UIViewController+ShowImagePicker.h */,
-				69A704B7159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m */,
 				69D0893715A1377300F6F2C8 /* ESViewControllerFactory.h */,
 				69D0893815A1377300F6F2C8 /* ESViewControllerFactory.m */,
 				693E7679159ADEB500F0882B /* ESComposeViewController.h */,
@@ -526,7 +521,6 @@
 				693E7680159AE01800F0882B /* ESKeyboardManager.m in Sources */,
 				69A704AA159BF57A00FD0A69 /* UIViewController+ShowAsPopup.m in Sources */,
 				69A704B4159BF63100FD0A69 /* PopupViewController.m in Sources */,
-				69A704B8159C09BE00FD0A69 /* UIViewController+ShowImagePicker.m in Sources */,
 				69A704BD159C349000FD0A69 /* ESGridView.m in Sources */,
 				69A704C1159C41F500FD0A69 /* GridViewController.m in Sources */,
 				69A704C5159C494700FD0A69 /* UIViewController+ESAdditions.m in Sources */,
