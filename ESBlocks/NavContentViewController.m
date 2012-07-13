@@ -20,6 +20,7 @@
 @implementation NavContentViewController
 
 @synthesize contentLabel = _contentLabel;
+@synthesize content = _content;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -30,20 +31,11 @@
     return self;
 }
 
-- (void)setContent:(NSString *)content
-{
-    self.contentLabel.text = content;
-}
-
-- (NSString *)content
-{
-    return self.contentLabel.text;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    self.contentLabel.text = self.content;
 }
 
 - (void)viewDidUnload
@@ -61,13 +53,14 @@
 
 - (IBAction)popButtonClicked:(id)sender 
 {
-    NavContentViewController *cvc = [[NavContentViewController alloc] init];
-    cvc.content = @"Popped";
-    [self.esNavigationController pushViewController:cvc animated:YES];
+    [self.esNavigationController popViewControllerAnimated:YES];
 }
 
 - (IBAction)pushButtonClicked:(id)sender
 {
-    
+    NavContentViewController *cvc = [[NavContentViewController alloc] init];
+    cvc.content = @"Pushed";
+    NSLog(@"esnav: %@", self.esNavigationController);
+    [self.esNavigationController pushViewController:cvc animated:YES];
 }
 @end

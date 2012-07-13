@@ -14,7 +14,8 @@
 
 @property (strong, readonly, nonatomic) UIViewController *rootViewController;
 @property (strong, readonly, nonatomic) UIViewController *topViewController;
-@property (copy, readonly, nonatomic) NSMutableArray *viewControllers;
+@property (strong, readonly, nonatomic) NSMutableArray *viewControllers;
+@property (assign, nonatomic) CGFloat navigationBarHeight;
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated; // Uses a horizontal slide transition. Has no effect if the view controller is already in the stack.
 
@@ -25,5 +26,6 @@
 @interface UIViewController (ESNavigationController)
 
 @property (strong, nonatomic) ESNavigationController *esNavigationController;
+@property (strong, nonatomic) UIView *esNavigationBar;
 
 @end

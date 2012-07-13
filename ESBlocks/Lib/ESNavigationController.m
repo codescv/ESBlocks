@@ -9,61 +9,75 @@
 #import "ESNavigationController.h"
 #import "UIView+ESAdditions.h"
 #import "NSObject+ESPropertyGeneration.h"
+#import "ESLog.h"
 
 @interface ESNavigationController ()
 
-@property (strong, nonatomic) UIViewController *rootViewController;
-@property (strong, nonatomic) UIViewController *topViewController;
-@property (copy, nonatomic) NSMutableArray *viewControllers;
+@property (strong, nonatomic) UIView *navigationBar;
+@property (strong, nonatomic) UIView *containerView;
 
 @end
 
 @implementation ESNavigationController
 
-@synthesize rootViewController = _rootViewController;
-@synthesize topViewController = _topViewController;
 @synthesize viewControllers = _viewControllers;
+@synthesize navigationBarHeight = _navigationBarHeight;
+@synthesize navigationBar = _navigationBar;
+@synthesize containerView = _containerView;
 
 - (id)initWithRootViewController:(UIViewController *)rootViewController
 {
     self = [super init];
     if (self) {
-        self.rootViewController = rootViewController;
-        self.topViewController = rootViewController;
+        _viewControllers = [[NSMutableArray alloc] initWithObjects:rootViewController, nil];
+        rootViewController.esNavigationController = self;
+        _navigationBarHeight = 48;
     }
     return self;
 }
 
-- (void)setRootViewController:(UIViewController *)rootViewController
+- (UIViewController *)rootViewController
 {
-    _rootViewController = rootViewController;
-    _rootViewController.esNavigationController = self;
+    return [self.viewControllers objectAtIndex:0];
 }
 
-- (void)setTopViewController:(UIViewController *)topViewController
+- (UIViewController *)topViewController
 {
-    _topViewController = topViewController;
-    _topViewController.esNavigationController = self;
+    return [self.viewControllers lastObject];
 }
 
 - (void)loadView
 {
     [super loadView];
     
-    NSLog(@"self: %@", NSStringFromCGRect(self.view.frame));
-    
     self.view.backgroundColor = [UIColor redColor];
     
-    UIView *navigationBar = [[UIView alloc] initWithFrame:self.view.bounds];
-    navigationBar.height = 48;
-    navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
-    navigationBar.backgroundColor = [UIColor blueColor];
-    [self.view addSubview:navigationBar];
+    self.containerView = [[UIView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:self.containerView];
     
-    self.topViewController.view.frame = self.view.bounds;
-    self.topViewController.view.top = 48;
-    self.topViewController.view.height = self.view.height - 48;
-    [self.view addSubview:self.topViewController.view];
+    if (self.topViewController) {
+        [self.containerView addSubview:self.topViewController.view];
+        self.navigationBar = self.topViewController.esNavigationBar;
+    }
+    
+    if (!self.navigationBar) {
+        self.navigationBar = [[UIView alloc] initWithFrame:self.view.bounds];
+    }
+    
+    self.navigationBar.height = self.navigationBarHeight;
+    self.navigationBar.autoresizingMask = UIViewAutoresizingFlexibleWidth;
+    self.navigationBar.backgroundColor = [UIColor blueColor];
+    [self.containerView addSubview:self.navigationBar];
+    
+    self.navigationBar.frame = CGRectMake(0, 0, self.containerView.width, self.navigationBarHeight);
+    self.topViewController.view.frame = CGRectMake(0, self.navigationBarHeight, self.containerView.width, self.containerView.height - self.navigationBarHeight);
+    
+    [self.view addSubview:self.containerView];
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidUnload
@@ -74,22 +88,78 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    return [self.topViewController shouldAutorotateToInterfaceOrientation:interfaceOrientation];
+    if (self.topViewController) {
+        return [self.topViewController shouldAutorotateToInterfaceOrientation:interfaceOrientation];        
+    } else {
+        return YES;
+    }
+
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated
 {
-    NSLog(@"push view controller: %@", viewController);
-    self.topViewController = viewController;
-    self.topViewController.view.frame = self.view.bounds;
-    self.topViewController.view.top = 48;
-    self.topViewController.view.height = self.view.height - 48;
-    [self.view addSubview:self.topViewController.view];
+    ESLogd(@"push view controller: %@", viewController);    
+    viewController.esNavigationController = self;
+    
+    UIView *newContainerView = [[UIView alloc] initWithFrame:CGRectMake(self.view.width, 
+                                                                        0,
+                                                                        self.view.width,
+                                                                        self.view.height)];
+    
+    
+    [newContainerView addSubview:viewController.view];
+    viewController.view.frame = newContainerView.bounds;
+    [self.view addSubview:newContainerView];
+    
+    UIView *oldContainerView = self.containerView;
+    self.containerView = newContainerView;
+
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         oldContainerView.right = 0;
+                         newContainerView.left = 0;
+                     } completion:^(BOOL finished) {
+                         [oldContainerView removeFromSuperview];
+                     }];
+    
+    [self.viewControllers addObject:viewController];
 }
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated
 {
-    return nil;
+    if ([self.viewControllers count] <= 1) {
+        return nil;
+    }
+    
+    UIViewController *poppedViewController = [self.viewControllers lastObject];
+    ESLogd(@"pop view controller: %@", poppedViewController);
+    [self.viewControllers removeLastObject];
+    
+    UIViewController *showingViewController = [self.viewControllers lastObject];
+    
+    UIView *newContainerView = [[UIView alloc] initWithFrame:CGRectMake(-self.view.width, 
+                                                                        0,
+                                                                        self.view.width,
+                                                                        self.view.height)];
+    
+    
+    [newContainerView addSubview:showingViewController.view];
+    showingViewController.view.frame = newContainerView.bounds;
+    [self.view addSubview:newContainerView];
+    
+    UIView *oldContainerView = self.containerView;
+    self.containerView = newContainerView;
+    
+    [UIView animateWithDuration:1.0
+                     animations:^{
+                         oldContainerView.left = self.view.width;
+                         newContainerView.left = 0;
+                     } completion:^(BOOL finished) {
+                         [oldContainerView removeFromSuperview];
+                     }];
+    
+    
+    return poppedViewController;
 }
 
 @end
@@ -97,10 +167,12 @@
 @implementation UIViewController (ESNavigationController)
 
 @dynamic esNavigationController;
+@dynamic esNavigationBar;
 
 + (void)load
 {
     [self defineProperty:@"esNavigationController" type:ES_PROP_RETAIN];
+    [self defineProperty:@"esNavigationBar" type:ES_PROP_RETAIN];
 }
 
 @end
