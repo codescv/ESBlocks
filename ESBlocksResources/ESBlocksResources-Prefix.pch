@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'ESBlocksResources' target in the 'ESBlocksResources' project
+//
+
+#ifdef __OBJC__
+    #import <Cocoa/Cocoa.h>
+#endif

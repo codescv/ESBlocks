@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6968A85615B3B77B001D937F /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6968A85515B3B77B001D937F /* CoreFoundation.framework */; };
+		6968A85C15B3B77B001D937F /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6968A85A15B3B77B001D937F /* InfoPlist.strings */; };
+		6968A86215B3B7AF001D937F /* ESComposeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6968A86115B3B797001D937F /* ESComposeViewController.xib */; };
 		69A3CCEC15AFAEB400FC84A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3CCEB15AFAEB400FC84A9 /* Foundation.framework */; };
 		69A3CCFA15AFAEB400FC84A9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3CCF915AFAEB400FC84A9 /* SenTestingKit.framework */; };
 		69A3CCFD15AFAEB400FC84A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3CCEB15AFAEB400FC84A9 /* Foundation.framework */; };
@@ -73,6 +76,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6968A85415B3B77B001D937F /* ESBlocksResources.bundle */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ESBlocksResources.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
+		6968A85515B3B77B001D937F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		6968A85915B3B77B001D937F /* ESBlocksResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ESBlocksResources-Info.plist"; sourceTree = "<group>"; };
+		6968A85B15B3B77B001D937F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6968A85D15B3B77B001D937F /* ESBlocksResources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ESBlocksResources-Prefix.pch"; sourceTree = "<group>"; };
+		6968A86115B3B797001D937F /* ESComposeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ESComposeViewController.xib; sourceTree = "<group>"; };
 		69A3CCE815AFAEB400FC84A9 /* libESBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libESBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A3CCEB15AFAEB400FC84A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		69A3CCEF15AFAEB400FC84A9 /* ESBlocks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ESBlocks-Prefix.pch"; sourceTree = "<group>"; };
@@ -131,6 +140,14 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		6968A85115B3B77B001D937F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6968A85615B3B77B001D937F /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69A3CCE515AFAEB400FC84A9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -174,6 +191,7 @@
 				69A3CDE715AFB34A00FC84A9 /* ESGridView.m */,
 				69A3CDE315AFB34A00FC84A9 /* ESComposeViewController.h */,
 				69A3CDE415AFB34A00FC84A9 /* ESComposeViewController.m */,
+				6968A86115B3B797001D937F /* ESComposeViewController.xib */,
 				69A3CDE815AFB34A00FC84A9 /* ESKeyboardManager.h */,
 				69A3CDE915AFB34A00FC84A9 /* ESKeyboardManager.m */,
 			);
@@ -220,11 +238,30 @@
 			name = Additions;
 			sourceTree = "<group>";
 		};
+		6968A85715B3B77B001D937F /* ESBlocksResources */ = {
+			isa = PBXGroup;
+			children = (
+				6968A85815B3B77B001D937F /* Supporting Files */,
+			);
+			path = ESBlocksResources;
+			sourceTree = "<group>";
+		};
+		6968A85815B3B77B001D937F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				6968A85915B3B77B001D937F /* ESBlocksResources-Info.plist */,
+				6968A85A15B3B77B001D937F /* InfoPlist.strings */,
+				6968A85D15B3B77B001D937F /* ESBlocksResources-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 		69A3CCDD15AFAEB400FC84A9 = {
 			isa = PBXGroup;
 			children = (
 				69A3CCED15AFAEB400FC84A9 /* ESBlocks */,
 				69A3CD0115AFAEB400FC84A9 /* ESBlocksTests */,
+				6968A85715B3B77B001D937F /* ESBlocksResources */,
 				69A3CCEA15AFAEB400FC84A9 /* Frameworks */,
 				69A3CCE915AFAEB400FC84A9 /* Products */,
 			);
@@ -235,6 +272,7 @@
 			children = (
 				69A3CCE815AFAEB400FC84A9 /* libESBlocks.a */,
 				69A3CCF815AFAEB400FC84A9 /* ESBlocksTests.octest */,
+				6968A85415B3B77B001D937F /* ESBlocksResources.bundle */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -250,6 +288,7 @@
 				69A3CD1215AFAF4100FC84A9 /* UIKit.framework */,
 				69A3CCEB15AFAEB400FC84A9 /* Foundation.framework */,
 				69A3CCF915AFAEB400FC84A9 /* SenTestingKit.framework */,
+				6968A85515B3B77B001D937F /* CoreFoundation.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -326,6 +365,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		6968A85315B3B77B001D937F /* ESBlocksResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6968A85E15B3B77B001D937F /* Build configuration list for PBXNativeTarget "ESBlocksResources" */;
+			buildPhases = (
+				6968A85015B3B77B001D937F /* Sources */,
+				6968A85115B3B77B001D937F /* Frameworks */,
+				6968A85215B3B77B001D937F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ESBlocksResources;
+			productName = ESBlocksResources;
+			productReference = 6968A85415B3B77B001D937F /* ESBlocksResources.bundle */;
+			productType = "com.apple.product-type.bundle";
+		};
 		69A3CCE715AFAEB400FC84A9 /* ESBlocks */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 69A3CD0C15AFAEB400FC84A9 /* Build configuration list for PBXNativeTarget "ESBlocks" */;
@@ -384,11 +440,21 @@
 			targets = (
 				69A3CCE715AFAEB400FC84A9 /* ESBlocks */,
 				69A3CCF715AFAEB400FC84A9 /* ESBlocksTests */,
+				6968A85315B3B77B001D937F /* ESBlocksResources */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		6968A85215B3B77B001D937F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6968A86215B3B7AF001D937F /* ESComposeViewController.xib in Resources */,
+				6968A85C15B3B77B001D937F /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69A3CCF515AFAEB400FC84A9 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -416,6 +482,13 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		6968A85015B3B77B001D937F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		69A3CCE415AFAEB400FC84A9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -461,6 +534,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6968A85A15B3B77B001D937F /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6968A85B15B3B77B001D937F /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		69A3CD0415AFAEB400FC84A9 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -472,6 +553,43 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		6968A85F15B3B77B001D937F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ESBlocksResources/ESBlocksResources-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "ESBlocksResources/ESBlocksResources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		6968A86015B3B77B001D937F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "ESBlocksResources/ESBlocksResources-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				INFOPLIST_FILE = "ESBlocksResources/ESBlocksResources-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Bundles";
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 		69A3CD0A15AFAEB400FC84A9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -579,6 +697,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		6968A85E15B3B77B001D937F /* Build configuration list for PBXNativeTarget "ESBlocksResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6968A85F15B3B77B001D937F /* Debug */,
+				6968A86015B3B77B001D937F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		69A3CCE215AFAEB400FC84A9 /* Build configuration list for PBXProject "ESBlocks" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

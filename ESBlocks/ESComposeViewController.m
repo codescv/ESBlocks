@@ -36,6 +36,16 @@
 @synthesize minHeight = _minHeight;
 @synthesize maxHeight = _maxHeight;
 
+- (id)init
+{
+    NSLog(@"init escomposes");
+    NSString *path = [[[NSBundle mainBundle] resourcePath]
+                      stringByAppendingPathComponent:@"ESBlocksResources.bundle"];
+    NSBundle *bundle = [NSBundle bundleWithPath:path];
+    self = [self initWithNibName:@"ESComposeViewController" bundle:bundle];
+    return self;
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -96,6 +106,7 @@
     
     if (!self.textView) {
         ESLoge(@"calculating height ranges without knowing about current textview width is not possible");
+        return;
     }
     
     UITextView *hiddenTextView = [[UITextView alloc] initWithFrame:self.textView.frame];
