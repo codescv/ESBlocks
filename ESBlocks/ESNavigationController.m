@@ -169,7 +169,7 @@
 @dynamic esNavigationController;
 @dynamic esNavigationBar;
 
-+ (void)load
++ (void)initialize
 {
     [self defineProperty:@"esNavigationController" type:ES_PROP_RETAIN];
     [self defineProperty:@"esNavigationBar" type:ES_PROP_RETAIN];
