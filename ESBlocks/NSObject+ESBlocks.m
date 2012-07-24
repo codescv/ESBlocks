@@ -25,8 +25,8 @@
 
 - (void)registerNotification:(NSString *)name usingBlock:(NotificationCallbackBlock)block
 {
-    __block __weak id obj;
-    obj = [[NSNotificationCenter defaultCenter] addObserverForName:name
+    /*__block __weak id obj;
+    obj =*/ [[NSNotificationCenter defaultCenter] addObserverForName:name
                                                             object:nil
                                                              queue:nil
                                                         usingBlock:block];
