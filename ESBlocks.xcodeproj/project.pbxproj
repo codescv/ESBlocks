@@ -72,9 +72,6 @@
 
 /* Begin PBXFileReference section */
 		6968A85515B3B77B001D937F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
-		6968A85915B3B77B001D937F /* ESBlocksResources-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ESBlocksResources-Info.plist"; sourceTree = "<group>"; };
-		6968A85B15B3B77B001D937F /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		6968A85D15B3B77B001D937F /* ESBlocksResources-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ESBlocksResources-Prefix.pch"; sourceTree = "<group>"; };
 		6973361615BE2C8700787459 /* ESUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESUI.h; sourceTree = "<group>"; };
 		6973361815BE2D8200787459 /* ESAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESAdditions.h; sourceTree = "<group>"; };
 		6973361915BE2DDD00787459 /* ESUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESUtils.h; sourceTree = "<group>"; };
@@ -224,30 +221,11 @@
 			name = Additions;
 			sourceTree = "<group>";
 		};
-		6968A85715B3B77B001D937F /* ESBlocksResources */ = {
-			isa = PBXGroup;
-			children = (
-				6968A85815B3B77B001D937F /* Supporting Files */,
-			);
-			path = ESBlocksResources;
-			sourceTree = "<group>";
-		};
-		6968A85815B3B77B001D937F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				6968A85915B3B77B001D937F /* ESBlocksResources-Info.plist */,
-				6968A85A15B3B77B001D937F /* InfoPlist.strings */,
-				6968A85D15B3B77B001D937F /* ESBlocksResources-Prefix.pch */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		69A3CCDD15AFAEB400FC84A9 = {
 			isa = PBXGroup;
 			children = (
 				69A3CCED15AFAEB400FC84A9 /* ESBlocks */,
 				69A3CD0115AFAEB400FC84A9 /* ESBlocksTests */,
-				6968A85715B3B77B001D937F /* ESBlocksResources */,
 				69A3CCEA15AFAEB400FC84A9 /* Frameworks */,
 				69A3CCE915AFAEB400FC84A9 /* Products */,
 			);
@@ -484,14 +462,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		6968A85A15B3B77B001D937F /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				6968A85B15B3B77B001D937F /* en */,
-			);
-			name = InfoPlist.strings;
-			sourceTree = "<group>";
-		};
 		69A3CD0415AFAEB400FC84A9 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
