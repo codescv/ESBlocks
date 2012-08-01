@@ -9,3 +9,8 @@
 #import "SynthesizeSingleton.h"
 #import "ESLog.h"
 #import "ESAddressBook.h"
+#import "ESMacros.h"
+
+NSString* ESPathForBundleFile(NSString* relativePath);
+NSString* ESPathForDocumentsFile(NSString* relativePath);
+NSString* ESPathForTemporaryFile(NSString* relativePath);

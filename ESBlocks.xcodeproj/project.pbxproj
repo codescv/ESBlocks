@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		692DFBFD15C28B9A00515595 /* ESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 692DFBFC15C28B9A00515595 /* ESUtils.m */; };
 		69A3CCEC15AFAEB400FC84A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3CCEB15AFAEB400FC84A9 /* Foundation.framework */; };
 		69A3CCFA15AFAEB400FC84A9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3CCF915AFAEB400FC84A9 /* SenTestingKit.framework */; };
 		69A3CCFD15AFAEB400FC84A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3CCEB15AFAEB400FC84A9 /* Foundation.framework */; };
@@ -71,6 +72,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		69112E9B15BFE29600A8E472 /* ESMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESMacros.h; sourceTree = "<group>"; };
+		692DFBFC15C28B9A00515595 /* ESUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESUtils.m; sourceTree = "<group>"; };
 		6968A85515B3B77B001D937F /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
 		6973361615BE2C8700787459 /* ESUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESUI.h; sourceTree = "<group>"; };
 		6973361815BE2D8200787459 /* ESAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESAdditions.h; sourceTree = "<group>"; };
@@ -183,7 +186,9 @@
 			isa = PBXGroup;
 			children = (
 				69A3CDE215AFB34A00FC84A9 /* ESBlocks.h */,
+				69112E9B15BFE29600A8E472 /* ESMacros.h */,
 				6973361915BE2DDD00787459 /* ESUtils.h */,
+				692DFBFC15C28B9A00515595 /* ESUtils.m */,
 				69A3CDFA15AFB34A00FC84A9 /* SynthesizeSingleton.h */,
 				69A3CDEA15AFB34A00FC84A9 /* ESLog.h */,
 				69A3CDEB15AFB34A00FC84A9 /* ESLog.m */,
@@ -440,6 +445,7 @@
 				69A3CE2C15AFB34A00FC84A9 /* UIViewController+ESAdditions.m in Sources */,
 				69A3CE2E15AFB34A00FC84A9 /* UIViewController+ShowAsDialog.m in Sources */,
 				69A3CE3015AFB34A00FC84A9 /* UIViewController+ShowAsPopup.m in Sources */,
+				692DFBFD15C28B9A00515595 /* ESUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

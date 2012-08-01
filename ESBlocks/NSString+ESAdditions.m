@@ -7,7 +7,6 @@
 //
 
 #import "NSString+ESAdditions.h"
-#import "ESLog.h"
 
 @implementation NSString (ESAdditions)
 

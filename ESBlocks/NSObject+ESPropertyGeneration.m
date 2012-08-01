@@ -9,7 +9,6 @@
 #import "NSObject+ESPropertyGeneration.h"
 #import <objc/runtime.h>
 
-#import "ESLog.h"
 #ifdef DEBUG
 #undef ES_LOG_LEVEL
 #define ES_LOG_LEVEL ES_LOG_LEVEL_ERROR

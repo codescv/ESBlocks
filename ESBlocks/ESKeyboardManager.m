@@ -11,7 +11,6 @@
 
 #import "UIView+ESAdditions.h"
 #import "SynthesizeSingleton.h"
-#import "ESLog.h"
 
 @interface ESKeyboardManager ()
 @property (nonatomic, assign) BOOL isKeyboardVisible;

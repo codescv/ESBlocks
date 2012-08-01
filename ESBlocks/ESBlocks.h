@@ -6,6 +6,7 @@
 //  Copyright 2011 Chi Zhang. All rights reserved.
 //
 
+// Block typedefs
 typedef void (^VoidBlock)();
 typedef void (^AlertDismissBlock)(UIAlertView *av, int buttonIndex);
 typedef void (^ActionSheetDismissBlock)(UIActionSheet *as, int buttonIndex);

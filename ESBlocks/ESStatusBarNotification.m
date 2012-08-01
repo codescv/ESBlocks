@@ -7,7 +7,6 @@
 //
 
 #import "ESStatusBarNotification.h"
-#import "ESLog.h"
 #import "UIView+ESAdditions.h"
 
 @interface ESStatusBarNotification ()

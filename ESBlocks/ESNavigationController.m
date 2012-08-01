@@ -9,7 +9,6 @@
 #import "ESNavigationController.h"
 #import "UIView+ESAdditions.h"
 #import "NSObject+ESPropertyGeneration.h"
-#import "ESLog.h"
 
 @interface ESNavigationController ()
 
