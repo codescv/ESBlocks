@@ -67,7 +67,7 @@
     CGFloat width = nColumns * cellSize.width;
     self.scrollView.contentSize = CGSizeMake(width, height);
     
-    //NSLog(@"height: %lf height: %lf height: %lf", height, cellSize.height, self.scrollView.height);
+    //ESLogd(@"height: %lf height: %lf height: %lf", height, cellSize.height, self.scrollView.height);
 }
 
 @end

@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		692DFBFD15C28B9A00515595 /* ESUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 692DFBFC15C28B9A00515595 /* ESUtils.m */; };
+		6986F50B15CA1E370042CD6D /* ESToast.h in Headers */ = {isa = PBXBuildFile; fileRef = 6986F50915CA1E370042CD6D /* ESToast.h */; };
+		6986F50C15CA1E370042CD6D /* ESToast.m in Sources */ = {isa = PBXBuildFile; fileRef = 6986F50A15CA1E370042CD6D /* ESToast.m */; };
 		69A3CCEC15AFAEB400FC84A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3CCEB15AFAEB400FC84A9 /* Foundation.framework */; };
 		69A3CCFA15AFAEB400FC84A9 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3CCF915AFAEB400FC84A9 /* SenTestingKit.framework */; };
 		69A3CCFD15AFAEB400FC84A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 69A3CCEB15AFAEB400FC84A9 /* Foundation.framework */; };
@@ -78,6 +80,8 @@
 		6973361615BE2C8700787459 /* ESUI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESUI.h; sourceTree = "<group>"; };
 		6973361815BE2D8200787459 /* ESAdditions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESAdditions.h; sourceTree = "<group>"; };
 		6973361915BE2DDD00787459 /* ESUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ESUtils.h; sourceTree = "<group>"; };
+		6986F50915CA1E370042CD6D /* ESToast.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ESToast.h; sourceTree = "<group>"; };
+		6986F50A15CA1E370042CD6D /* ESToast.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ESToast.m; sourceTree = "<group>"; };
 		69A3CCE815AFAEB400FC84A9 /* libESBlocks.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libESBlocks.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		69A3CCEB15AFAEB400FC84A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		69A3CCEF15AFAEB400FC84A9 /* ESBlocks-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ESBlocks-Prefix.pch"; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 			isa = PBXGroup;
 			children = (
 				6973361615BE2C8700787459 /* ESUI.h */,
+				6986F50915CA1E370042CD6D /* ESToast.h */,
+				6986F50A15CA1E370042CD6D /* ESToast.m */,
 				69A3CDEC15AFB34A00FC84A9 /* ESNavigationController.h */,
 				69A3CDED15AFB34A00FC84A9 /* ESNavigationController.m */,
 				69A3CDEE15AFB34A00FC84A9 /* ESStatusBarNotification.h */,
@@ -326,6 +332,7 @@
 				69A3CE2B15AFB34A00FC84A9 /* UIViewController+ESAdditions.h in Headers */,
 				69A3CE2D15AFB34A00FC84A9 /* UIViewController+ShowAsDialog.h in Headers */,
 				69A3CE2F15AFB34A00FC84A9 /* UIViewController+ShowAsPopup.h in Headers */,
+				6986F50B15CA1E370042CD6D /* ESToast.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -446,6 +453,7 @@
 				69A3CE2E15AFB34A00FC84A9 /* UIViewController+ShowAsDialog.m in Sources */,
 				69A3CE3015AFB34A00FC84A9 /* UIViewController+ShowAsPopup.m in Sources */,
 				692DFBFD15C28B9A00515595 /* ESUtils.m in Sources */,
+				6986F50C15CA1E370042CD6D /* ESToast.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

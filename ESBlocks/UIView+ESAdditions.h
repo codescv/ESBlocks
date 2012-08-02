@@ -32,4 +32,9 @@
 @property (nonatomic) CGFloat width;
 @property (nonatomic) CGFloat height;
 
+/* loads a view from a nib file.
+ * The nib file must have a UIViewController as the file's owner and has an outlet pointing to the view to be loaded.
+ */
++ (UIView *)viewFromNibFile:(NSString *)file;
+
 @end

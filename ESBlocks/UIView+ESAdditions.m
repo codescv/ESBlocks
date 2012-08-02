@@ -175,4 +175,10 @@
     self.frame = frame;
 }
 
++ (UIView *)viewFromNibFile:(NSString *)file
+{
+    UIViewController *holder = [[UIViewController alloc] initWithNibName:file bundle:nil];
+    return holder.view;
+}
+
 @end
